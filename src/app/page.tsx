@@ -1,101 +1,209 @@
+import Link from "next/link";
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <section className="flex flex-col items-center gap-6 bg-sky-50 px-4 py-20 dark:bg-sky-900 md:px-10 lg:flex-row">
+        <div className="flex flex-col gap-6">
+          <h2 className="text-center text-4xl font-extrabold text-slate-900 dark:text-white md:text-5xl lg:text-left lg:text-7xl">
+            ELEVATE YOUR EXAMS
+          </h2>
+          <p className="max-w-prose text-center md:text-lg lg:text-left lg:text-xl">
+            Welcome to the thrilling world of ExamShare, an open source project
+            for sharing past examination questions in higher education. Conquer
+            those exams and help others do the same!
+          </p>
+          <div className="flex w-full flex-col gap-4">
+            <Link
+              href="/past-questions-archive"
+              className="rounded-xl bg-sky-500 p-3 text-center font-semibold text-white hover:bg-sky-600 active:bg-sky-700 dark:bg-sky-400 dark:text-sky-950 dark:hover:bg-sky-300 dark:active:bg-sky-500">
+              Explore Past Questions
+            </Link>
+            <Link
+              href="/submit-past-question"
+              className="rounded-xl border border-sky-700 p-3 text-center font-semibold text-sky-700 hover:bg-sky-100 active:bg-sky-200 dark:border-sky-300 dark:text-sky-300 dark:hover:bg-sky-950 dark:active:bg-sky-900">
+              Submit a Past Question
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <Image
+          src="/hero_image.svg"
+          alt="A girl holding a book in her hands while surrounded by other books, looking at a spaceship flying into the air"
+          width={1664}
+          height={1117}
+          priority
+          className="lg:w-6/12"
+        />
+      </section>
+      <section
+        id="discover-examshare"
+        className="flex flex-col items-center gap-7 px-4 py-14 md:px-10 lg:flex-row">
+        <div className="flex flex-col gap-6">
+          <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white">
+            Discover ExamShare
+          </h2>
+          <div>
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2 font-semibold text-slate-900 dark:text-white">
+                {/* <FaRegCompass size={25} /> */}
+                <h3 className="text-xl">Past Goldmines</h3>
+              </div>
+              <p className="ml-3 max-w-prose border-l border-sky-200 px-5 pb-6 pt-2 dark:border-sky-700">
+                There is nothing new under the sun. Explore questions from
+                earlier years and beyond, generously shared by individuals who
+                have taken these exams before you, to enhance your exam
+                preparation.
+              </p>
+            </div>
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2 font-semibold text-slate-900 dark:text-white">
+                {/* <LiaUsersSolid size={25} /> */}
+                <h3 className="text-xl">Boost Learning</h3>
+              </div>
+              <p className="ml-3 max-w-prose border-l border-sky-200 px-5 pb-6 pt-2 dark:border-sky-700">
+                Unlock the potential of collaborative learning. Share, discuss,
+                and learn from others&apos; answers to these past examination
+                questions.
+              </p>
+            </div>
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2 font-semibold text-slate-900 dark:text-white">
+                {/* <BsGlobe size={25} /> */}
+                <h3 className="text-xl">Help The Future</h3>
+              </div>
+              <p className="ml-3 max-w-prose px-5 pb-6 pt-2">
+                Following the example set by generous individuals who shared
+                with you, assist future generations in their learning journey by
+                sharing your own past examination questions. This simple act
+                adds value to both the community and global education.
+              </p>
+            </div>
+          </div>
+        </div>
+        <Image
+          src="/help_image.svg"
+          alt="A young man sitting and extending his hands to assist a young girl who is falling on the ground and reaching out for help"
+          width={1664}
+          height={1117}
+          priority
+          className="lg:w-5/12"
+        />
+      </section>
+      <section className="flex flex-col gap-6 bg-sky-50 px-4 py-14 dark:bg-sky-900 md:px-10">
+        <div className="flex flex-col items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-sky-400 to-sky-600 p-12 text-white dark:from-sky-300 dark:to-sky-500 dark:text-sky-950">
+          <h3 className="text-4xl font-extrabold">500+</h3>
+          <p className="text-3xl font-medium">Institutions</p>
+        </div>
+        <div className="flex flex-col items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-sky-400 to-sky-600 p-12 text-white dark:from-sky-300 dark:to-sky-500 dark:text-sky-950">
+          <h3 className="text-4xl font-extrabold">20,000+</h3>
+          <p className="text-3xl font-medium">Questions</p>
+        </div>
+        <div className="flex flex-col items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-sky-400 to-sky-600 p-12 text-white dark:from-sky-300 dark:to-sky-500 dark:text-sky-950">
+          <h3 className="text-4xl font-extrabold">10,000+</h3>
+          <p className="text-3xl font-medium">Users</p>
+        </div>
+      </section>
+      <section
+        id="faqs"
+        className="flex flex-col items-center gap-7 px-4 py-14 md:px-10 lg:flex-row">
+        <Image
+          src="/faq.svg"
+          alt=""
+          width={1000}
+          height={659}
+          className="lg:w-5/12"
+        />
+        <div className="flex flex-col gap-6">
+          <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white">
+            Frequently Asked Questions
+          </h2>
+          <div className="flex flex-col gap-4">
+            <div>
+              <h3 className="mb-2 max-w-prose font-medium text-slate-900 dark:text-white">
+                How can I view the past exam questions for my school?
+              </h3>
+              <p className="max-w-prose text-sm">
+                To access past exam questions for your school, go to the{" "}
+                <Link
+                  href="/past-questions-archive"
+                  className="font-bold text-sky-500 hover:text-slate-400 hover:underline hover:decoration-sky-500 hover:underline-offset-4">
+                  past questions archive page
+                </Link>{" "}
+                and locate your school listed alphabetically. Click on your
+                school, and you will be directed to a dedicated section
+                displaying the <strong>available</strong> past questions for
+                your school. From there, select the department, followed by the
+                session, level, semester, and course to view the past questions.
+                If there are no past questions available for your school, you
+                will be redirected to a 404 error page.
+              </p>
+            </div>
+            <div>
+              <h3 className="mb-2 max-w-prose font-medium text-slate-900 dark:text-white">
+                How can I view and add my own answers to these past exam
+                questions?
+              </h3>
+              <p className="max-w-prose text-sm">
+                To access and contribute answers to past exam questions, you
+                need an account with us. If you don&apos;t have one, please{" "}
+                <Link
+                  href="/signup"
+                  className="font-bold text-sky-500 hover:text-slate-400 hover:underline hover:decoration-sky-500 hover:underline-offset-4">
+                  create an account
+                </Link>
+                . If you already have an account, simply{" "}
+                <Link
+                  href="/signin"
+                  className="font-bold text-sky-500 hover:text-slate-400 hover:underline hover:decoration-sky-500 hover:underline-offset-4">
+                  log in
+                </Link>
+                . Remember, sharing wisdom and knowledge is valuable;
+                there&apos;s no benefit in keeping it to yourself.
+              </p>
+            </div>
+            <div>
+              <h3 className="mb-2 max-w-prose font-medium text-slate-900 dark:text-white">
+                How can I share my own past exam questions?
+              </h3>
+              <p className="max-w-prose text-sm">
+                Simply upload your past examination questions in the dedicated
+                section. Share the wisdom!
+              </p>
+            </div>
+            <div>
+              <h3 className="mb-2 max-w-prose font-medium text-slate-900 dark:text-white">
+                Is the content verified?
+              </h3>
+              <p className="max-w-prose text-sm">
+                Yes! Our enthusiastic team carefully reviews and curates each
+                question for accuracy and relevance.
+              </p>
+            </div>
+            <div>
+              <h3 className="mb-2 max-w-prose font-medium text-slate-900 dark:text-white">
+                Are my contributions anonymous?
+              </h3>
+              <p className="max-w-prose text-sm">
+                Absolutely! We value your privacy. You can choose to remain
+                anonymous or take credit for your contributions.
+              </p>
+            </div>
+            <div>
+              <h3 className="mb-2 max-w-prose font-medium text-slate-900 dark:text-white">
+                How can I contribute to the development of ExamShare?
+              </h3>
+              <p className="max-w-prose text-sm">
+                ExamShare is an open-source project, so its survival relies on
+                your contributions, which are highly valued and appreciated.
+                Please visit our ExamShare repository on GitHub, where the code
+                is hosted live, and start contributing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      n
+    </>
   );
 }
