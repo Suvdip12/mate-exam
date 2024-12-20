@@ -7,16 +7,16 @@ export default async function Home() {
       <section className="flex flex-col items-center gap-6 bg-sky-50 px-4 py-20 dark:bg-sky-900 md:px-10 lg:flex-row">
         <div className="flex flex-col gap-6">
           <h2 className="text-center text-4xl font-extrabold text-slate-900 dark:text-white md:text-5xl lg:text-left lg:text-7xl">
-            MATHEMATICS APTITUTE TEST - 2025
+            MATHEMATICS APTITUTE TEST 2025
           </h2>
           <p className="max-w-prose text-center md:text-lg lg:text-left lg:text-xl">
-            Welcome to the thrilling world of MAT, an open source project
-            for sharing past examination questions in higher education. Conquer
+            Welcome to the thrilling world of MAT, an open source project for
+            sharing past examination questions in higher education. Conquer
             those exams and help others do the same!
           </p>
           <div className="flex w-full flex-col gap-4">
             <Link
-              href="/past-questions-archive"
+              href="/questions"
               className="rounded-xl bg-sky-500 p-3 text-center font-semibold text-white hover:bg-sky-600 active:bg-sky-700 dark:bg-sky-400 dark:text-sky-950 dark:hover:bg-sky-300 dark:active:bg-sky-500">
               Explore Past Questions
             </Link>
