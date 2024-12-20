@@ -1,10 +1,10 @@
-export interface Subject {
-  name: string;
+export interface Years {
+  year: string;
   driveLink: string;
 }
 
 export interface Paper {
-  year: string;
+  class: string;
   type: string;
-  subjects: Subject[];
+  years: Years[];
 }
