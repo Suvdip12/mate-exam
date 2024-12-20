@@ -17,6 +17,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { toast } from "sonner";
 import Image from "next/image";
+import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -44,6 +45,7 @@ export default function ContactPage() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
+
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -53,20 +55,22 @@ export default function ContactPage() {
         },
         body: JSON.stringify({
           ...values,
-          access_key: "YOUR_WEB3FORMS_ACCESS_KEY_HERE", // Replace with  Web3Forms access key
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY, // Replace with  Web3Forms access key
         }),
       });
 
       const result = await response.json();
+      // console.log(result);
       if (result.success) {
         toast.success(
-          "We've received your message and will get back to you soon.",
+          "We've received your message,as soon as possible MAT team contact you. Thank you!",
         );
         form.reset();
       } else {
         throw new Error(result.message || "Something went wrong");
       }
     } catch (error) {
+      // console.log(error);
       toast.error(
         "There was a problem sending your message. Please try again.",
       );
@@ -193,7 +197,11 @@ export default function ContactPage() {
                   disabled={isSubmitting}
                   className="w-full rounded bg-sky-700 px-4 py-2 font-bold text-white transition duration-300 hover:bg-sky-600"
                 >
-                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {isSubmitting ? (
+                    <Loader2 className="size-5 animate-spin" />
+                  ) : (
+                    "Send Message"
+                  )}
                 </Button>
               </form>
             </Form>

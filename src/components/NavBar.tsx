@@ -11,7 +11,7 @@ export default function NavBar() {
             width={40}
             height={40}
           />
-          <span className="text-xl font-bold">Kalyani University</span>
+          <span className="text-xl font-bold">University of Kalyani</span>
         </Link>
       </div>
     </header>

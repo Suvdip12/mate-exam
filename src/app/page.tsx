@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import ContactPage from "./contact-us";
+import { ResultCommingAlertDialog } from "@/components/Result-comming-soon-dialog";
 
 export default async function Home() {
   return (
@@ -22,12 +23,7 @@ export default async function Home() {
             >
               Explore Past Questions
             </Link>
-            <Link
-              href="/submit-past-question"
-              className="rounded-xl border border-sky-700 p-3 text-center font-semibold text-sky-700 hover:bg-sky-100 active:bg-sky-200 dark:border-sky-300 dark:text-sky-300 dark:hover:bg-sky-950 dark:active:bg-sky-900"
-            >
-              Check Results
-            </Link>
+            <ResultCommingAlertDialog />
           </div>
         </div>
         <Image
