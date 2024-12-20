@@ -2,19 +2,22 @@ import Link from "next/link";
 import Image from "next/image";
 import ContactPage from "./contact-us";
 import { ResultCommingAlertDialog } from "@/components/Result-comming-soon-dialog";
+import NavBar from "@/components/NavBar";
 
 export default async function Home() {
   return (
     <>
+      <NavBar />
       <section className="flex flex-col items-center gap-6 bg-sky-50 px-4 py-20 dark:bg-sky-900 md:px-10 lg:flex-row">
         <div className="flex flex-col gap-6">
           <h2 className="text-center text-4xl font-extrabold text-slate-900 dark:text-white md:text-5xl lg:text-left lg:text-7xl">
             MATHEMATICS APTITUTE TEST 2025
           </h2>
           <p className="max-w-prose text-center md:text-lg lg:text-left lg:text-xl">
-            Welcome to the thrilling world of MAT, an open source project for
-            sharing past examination questions in higher education. Conquer
-            those exams and help others do the same!
+            MAT-2025 is a mathematics entrance test focused on enhancing
+            problem-solving and analytical skills. It covers key topics like
+            algebra, calculus, geometry, and logical reasoning. The exam aims to
+            boost mathematical aptitude for academic and professional growth.
           </p>
           <div className="flex w-full flex-col gap-4">
             <Link
