@@ -7,10 +7,10 @@ export default async function Home() {
       <section className="flex flex-col items-center gap-6 bg-sky-50 px-4 py-20 dark:bg-sky-900 md:px-10 lg:flex-row">
         <div className="flex flex-col gap-6">
           <h2 className="text-center text-4xl font-extrabold text-slate-900 dark:text-white md:text-5xl lg:text-left lg:text-7xl">
-            ELEVATE YOUR EXAMS
+            MATHEMATICS APTITUTE TEST - 2025
           </h2>
           <p className="max-w-prose text-center md:text-lg lg:text-left lg:text-xl">
-            Welcome to the thrilling world of ExamShare, an open source project
+            Welcome to the thrilling world of MAT, an open source project
             for sharing past examination questions in higher education. Conquer
             those exams and help others do the same!
           </p>
@@ -23,12 +23,12 @@ export default async function Home() {
             <Link
               href="/submit-past-question"
               className="rounded-xl border border-sky-700 p-3 text-center font-semibold text-sky-700 hover:bg-sky-100 active:bg-sky-200 dark:border-sky-300 dark:text-sky-300 dark:hover:bg-sky-950 dark:active:bg-sky-900">
-              Submit a Past Question
+              Check Results
             </Link>
           </div>
         </div>
         <Image
-          src="/hero_image.svg"
+          src="/math1.png"
           alt="A girl holding a book in her hands while surrounded by other books, looking at a spaceship flying into the air"
           width={1664}
           height={1117}
@@ -41,7 +41,7 @@ export default async function Home() {
         className="flex flex-col items-center gap-7 px-4 py-14 md:px-10 lg:flex-row">
         <div className="flex flex-col gap-6">
           <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white">
-            Discover ExamShare
+            Discover MAT
           </h2>
           <div>
             <div className="flex flex-col">
@@ -82,7 +82,7 @@ export default async function Home() {
           </div>
         </div>
         <Image
-          src="/help_image.svg"
+          src="/math3.avif"
           alt="A young man sitting and extending his hands to assist a young girl who is falling on the ground and reaching out for help"
           width={1664}
           height={1117}
@@ -92,16 +92,16 @@ export default async function Home() {
       </section>
       <section className="flex flex-col gap-6 bg-sky-50 px-4 py-14 dark:bg-sky-900 md:px-10">
         <div className="flex flex-col items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-sky-400 to-sky-600 p-12 text-white dark:from-sky-300 dark:to-sky-500 dark:text-sky-950">
-          <h3 className="text-4xl font-extrabold">500+</h3>
+          <h3 className="text-4xl font-extrabold">100+</h3>
           <p className="text-3xl font-medium">Institutions</p>
         </div>
         <div className="flex flex-col items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-sky-400 to-sky-600 p-12 text-white dark:from-sky-300 dark:to-sky-500 dark:text-sky-950">
-          <h3 className="text-4xl font-extrabold">20,000+</h3>
-          <p className="text-3xl font-medium">Questions</p>
+          <h3 className="text-4xl font-extrabold">2000+</h3>
+          <p className="text-3xl font-medium">Students</p>
         </div>
         <div className="flex flex-col items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-sky-400 to-sky-600 p-12 text-white dark:from-sky-300 dark:to-sky-500 dark:text-sky-950">
-          <h3 className="text-4xl font-extrabold">10,000+</h3>
-          <p className="text-3xl font-medium">Users</p>
+          <h3 className="text-4xl font-extrabold">10+</h3>
+          <p className="text-3xl font-medium">Centers</p>
         </div>
       </section>
       <section
@@ -203,7 +203,6 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      n
     </>
   );
 }
