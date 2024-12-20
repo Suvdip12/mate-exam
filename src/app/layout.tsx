@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lora } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import NavBar from "@/components/NavBar";
 const lora = Lora({
   subsets: ["latin"],
 });
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={lora.className}>
+        <NavBar />
         {children}
         <Toaster expand={true} richColors />
       </body>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import ContactPage from "./contact-us";
 
 export default async function Home() {
   return (
@@ -17,12 +18,14 @@ export default async function Home() {
           <div className="flex w-full flex-col gap-4">
             <Link
               href="/questions"
-              className="rounded-xl bg-sky-500 p-3 text-center font-semibold text-white hover:bg-sky-600 active:bg-sky-700 dark:bg-sky-400 dark:text-sky-950 dark:hover:bg-sky-300 dark:active:bg-sky-500">
+              className="rounded-xl bg-sky-500 p-3 text-center font-semibold text-white hover:bg-sky-600 active:bg-sky-700 dark:bg-sky-400 dark:text-sky-950 dark:hover:bg-sky-300 dark:active:bg-sky-500"
+            >
               Explore Past Questions
             </Link>
             <Link
               href="/submit-past-question"
-              className="rounded-xl border border-sky-700 p-3 text-center font-semibold text-sky-700 hover:bg-sky-100 active:bg-sky-200 dark:border-sky-300 dark:text-sky-300 dark:hover:bg-sky-950 dark:active:bg-sky-900">
+              className="rounded-xl border border-sky-700 p-3 text-center font-semibold text-sky-700 hover:bg-sky-100 active:bg-sky-200 dark:border-sky-300 dark:text-sky-300 dark:hover:bg-sky-950 dark:active:bg-sky-900"
+            >
               Check Results
             </Link>
           </div>
@@ -38,7 +41,8 @@ export default async function Home() {
       </section>
       <section
         id="discover-examshare"
-        className="flex flex-col items-center gap-7 px-4 py-14 md:px-10 lg:flex-row">
+        className="flex flex-col items-center gap-7 px-4 py-14 md:px-10 lg:flex-row"
+      >
         <div className="flex flex-col gap-6">
           <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white">
             Discover MAT
@@ -106,7 +110,8 @@ export default async function Home() {
       </section>
       <section
         id="faqs"
-        className="flex flex-col items-center gap-7 px-4 py-14 md:px-10 lg:flex-row">
+        className="flex flex-col items-center gap-7 px-4 py-14 md:px-10 lg:flex-row"
+      >
         <Image
           src="/faq.svg"
           alt=""
@@ -125,11 +130,9 @@ export default async function Home() {
               </h3>
               <p className="max-w-prose text-sm">
                 To access past exam questions for your school, go to the{" "}
-                <Link
-                  href="/past-questions-archive"
-                  className="font-bold text-sky-500 hover:text-slate-400 hover:underline hover:decoration-sky-500 hover:underline-offset-4">
+                <span className="font-bold text-sky-500 hover:text-slate-400 hover:underline hover:decoration-sky-500 hover:underline-offset-4">
                   past questions archive page
-                </Link>{" "}
+                </span>{" "}
                 and locate your school listed alphabetically. Click on your
                 school, and you will be directed to a dedicated section
                 displaying the <strong>available</strong> past questions for
@@ -147,17 +150,13 @@ export default async function Home() {
               <p className="max-w-prose text-sm">
                 To access and contribute answers to past exam questions, you
                 need an account with us. If you don&apos;t have one, please{" "}
-                <Link
-                  href="/signup"
-                  className="font-bold text-sky-500 hover:text-slate-400 hover:underline hover:decoration-sky-500 hover:underline-offset-4">
+                <span className="font-bold text-sky-500 hover:text-slate-400 hover:underline hover:decoration-sky-500 hover:underline-offset-4">
                   create an account
-                </Link>
+                </span>
                 . If you already have an account, simply{" "}
-                <Link
-                  href="/signin"
-                  className="font-bold text-sky-500 hover:text-slate-400 hover:underline hover:decoration-sky-500 hover:underline-offset-4">
+                <span className="font-bold text-sky-500 hover:text-slate-400 hover:underline hover:decoration-sky-500 hover:underline-offset-4">
                   log in
-                </Link>
+                </span>
                 . Remember, sharing wisdom and knowledge is valuable;
                 there&apos;s no benefit in keeping it to yourself.
               </p>
@@ -203,6 +202,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
+      <ContactPage />
     </>
   );
 }
