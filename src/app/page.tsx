@@ -54,9 +54,9 @@ export default async function Home() {
               </div>
               <p className="ml-3 max-w-prose border-l border-sky-200 px-5 pb-6 pt-2 dark:border-sky-700">
                 There is nothing new under the sun. Explore questions from
-                earlier years and beyond, generously shared by individuals who
-                have taken these exams before you, to enhance your exam
-                preparation.
+                earlier years and beyond, Officially provided by the 
+                exam authorities to help you to enhance your exam preparation 
+                with authentic and reliable resources.
               </p>
             </div>
             <div className="flex flex-col">
@@ -66,7 +66,7 @@ export default async function Home() {
               </div>
               <p className="ml-3 max-w-prose border-l border-sky-200 px-5 pb-6 pt-2 dark:border-sky-700">
                 Unlock the potential of collaborative learning. Share, discuss,
-                and learn from others&apos; answers to these past examination
+                and learn from others answers to these past examination
                 questions.
               </p>
             </div>
@@ -76,10 +76,9 @@ export default async function Home() {
                 <h3 className="text-xl">Help The Future</h3>
               </div>
               <p className="ml-3 max-w-prose px-5 pb-6 pt-2">
-                Following the example set by generous individuals who shared
-                with you, assist future generations in their learning journey by
-                sharing your own past examination questions. This simple act
-                adds value to both the community and global education.
+              Invest in your own bright future by dedicating time to learning and growth.
+              Every effort you make today brings you one step closer to achieving your dreams 
+              and unlocking your true potential.
               </p>
             </div>
           </div>
@@ -128,74 +127,52 @@ export default async function Home() {
                 How can I view the past exam questions for my school?
               </h3>
               <p className="max-w-prose text-sm">
-                To access past exam questions for your school, go to the{" "}
-                <span className="font-bold text-sky-500 hover:text-slate-400 hover:underline hover:decoration-sky-500 hover:underline-offset-4">
-                  past questions archive page
-                </span>{" "}
-                and locate your school listed alphabetically. Click on your
-                school, and you will be directed to a dedicated section
+                To access past exam questions for your class, go to the
+                <a href="/questions" className="font-bold text-sky-500 hover:text-slate-400 hover:underline hover:decoration-sky-500 hover:underline-offset-4"> past questions archive page </a>
+                and locate your class and click a year
+                 ,you will be directed to a dedicated section
                 displaying the <strong>available</strong> past questions for
-                your school. From there, select the department, followed by the
-                session, level, semester, and course to view the past questions.
-                If there are no past questions available for your school, you
+                your class.
+                If there are no past questions available for your class, you
                 will be redirected to a 404 error page.
               </p>
             </div>
             <div>
               <h3 className="mb-2 max-w-prose font-medium text-slate-900 dark:text-white">
-                How can I view and add my own answers to these past exam
-                questions?
+                How can I check result?
               </h3>
               <p className="max-w-prose text-sm">
-                To access and contribute answers to past exam questions, you
-                need an account with us. If you don&apos;t have one, please{" "}
-                <span className="font-bold text-sky-500 hover:text-slate-400 hover:underline hover:decoration-sky-500 hover:underline-offset-4">
-                  create an account
-                </span>
-                . If you already have an account, simply{" "}
-                <span className="font-bold text-sky-500 hover:text-slate-400 hover:underline hover:decoration-sky-500 hover:underline-offset-4">
-                  log in
-                </span>
-                . Remember, sharing wisdom and knowledge is valuable;
-                there&apos;s no benefit in keeping it to yourself.
+                To check your result, go to the
+                <a href="/" className="font-bold text-sky-500 hover:text-slate-400 hover:underline hover:decoration-sky-500 hover:underline-offset-4"> result page </a>
+                and input your Roll Number and click the check button.
+                You will be redirected to a dedicated section displaying your
+                result.
               </p>
             </div>
             <div>
               <h3 className="mb-2 max-w-prose font-medium text-slate-900 dark:text-white">
-                How can I share my own past exam questions?
+                When are the results usually released?
               </h3>
               <p className="max-w-prose text-sm">
-                Simply upload your past examination questions in the dedicated
-                section. Share the wisdom!
+                The results are usually released within 7 days after the
+                examination. You can check the result page to see if your result
+                has been released.
               </p>
             </div>
             <div>
               <h3 className="mb-2 max-w-prose font-medium text-slate-900 dark:text-white">
-                Is the content verified?
+                How many questions are available for each class?
               </h3>
               <p className="max-w-prose text-sm">
-                Yes! Our enthusiastic team carefully reviews and curates each
-                question for accuracy and relevance.
+               <strong>25</strong> questions are available for each class.
               </p>
             </div>
             <div>
               <h3 className="mb-2 max-w-prose font-medium text-slate-900 dark:text-white">
-                Are my contributions anonymous?
+              Will extra time be given for reading questions and filling the roll number and name...?
               </h3>
               <p className="max-w-prose text-sm">
-                Absolutely! We value your privacy. You can choose to remain
-                anonymous or take credit for your contributions.
-              </p>
-            </div>
-            <div>
-              <h3 className="mb-2 max-w-prose font-medium text-slate-900 dark:text-white">
-                How can I contribute to the development of ExamShare?
-              </h3>
-              <p className="max-w-prose text-sm">
-                ExamShare is an open-source project, so its survival relies on
-                your contributions, which are highly valued and appreciated.
-                Please visit our ExamShare repository on GitHub, where the code
-                is hosted live, and start contributing.
+                Yes
               </p>
             </div>
           </div>
