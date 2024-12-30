@@ -54,9 +54,9 @@ export default async function Home() {
               </div>
               <p className="ml-3 max-w-prose border-l border-sky-200 px-5 pb-6 pt-2 dark:border-sky-700">
                 There is nothing new under the sun. Explore questions from
-                earlier years and beyond, Officially provided by the 
-                exam authorities to help you to enhance your exam preparation 
-                with authentic and reliable resources.
+                earlier years and beyond, Officially provided by the exam
+                authorities to help you to enhance your exam preparation with
+                authentic and reliable resources.
               </p>
             </div>
             <div className="flex flex-col">
@@ -76,9 +76,10 @@ export default async function Home() {
                 <h3 className="text-xl">Help The Future</h3>
               </div>
               <p className="ml-3 max-w-prose px-5 pb-6 pt-2">
-              Invest in your own bright future by dedicating time to learning and growth.
-              Every effort you make today brings you one step closer to achieving your dreams 
-              and unlocking your true potential.
+                Invest in your own bright future by dedicating time to learning
+                and growth. Every effort you make today brings you one step
+                closer to achieving your dreams and unlocking your true
+                potential.
               </p>
             </div>
           </div>
@@ -128,13 +129,20 @@ export default async function Home() {
               </h3>
               <p className="max-w-prose text-sm">
                 To access past exam questions for your class, go to the
-                <a href="/questions" className="font-bold text-sky-500 hover:text-slate-400 hover:underline hover:decoration-sky-500 hover:underline-offset-4"> past questions archive page </a>
-                and locate your class and click a year
-                 ,you will be directed to a dedicated section
-                displaying the <strong>available</strong> past questions for
-                your class.
-                If there are no past questions available for your class, you
-                will be redirected to a 404 error page.
+                <Link
+                  href="/questions"
+                  className="font-bold text-sky-500 hover:text-slate-400 hover:underline hover:decoration-sky-500 hover:underline-offset-4"
+                >
+                  {" "}
+                  past questions archive page{" "}
+                </Link>
+                and locate your class and click a year ,you will be directed to
+                a dedicated section displaying the <strong>
+                  available
+                </strong>{" "}
+                past questions for your class. If there are no past questions
+                available for your class, you will be redirected to a 404 error
+                page.
               </p>
             </div>
             <div>
@@ -143,10 +151,15 @@ export default async function Home() {
               </h3>
               <p className="max-w-prose text-sm">
                 To check your result, go to the
-                <a href="/" className="font-bold text-sky-500 hover:text-slate-400 hover:underline hover:decoration-sky-500 hover:underline-offset-4"> result page </a>
-                and input your Roll Number and click the check button.
-                You will be redirected to a dedicated section displaying your
-                result.
+                <Link
+                  href="/"
+                  className="font-bold text-sky-500 hover:text-slate-400 hover:underline hover:decoration-sky-500 hover:underline-offset-4"
+                >
+                  {" "}
+                  result page{" "}
+                </Link>
+                and input your Roll Number and click the check button. You will
+                be redirected to a dedicated section displaying your result.
               </p>
             </div>
             <div>
@@ -164,16 +177,15 @@ export default async function Home() {
                 How many questions are available for each class?
               </h3>
               <p className="max-w-prose text-sm">
-               <strong>25</strong> questions are available for each class.
+                <strong>25</strong> questions are available for each class.
               </p>
             </div>
             <div>
               <h3 className="mb-2 max-w-prose font-medium text-slate-900 dark:text-white">
-              Will extra time be given for reading questions and filling the roll number and name...?
+                Will extra time be given for reading questions and filling the
+                roll number and name...?
               </h3>
-              <p className="max-w-prose text-sm">
-                Yes
-              </p>
+              <p className="max-w-prose text-sm">Yes</p>
             </div>
           </div>
         </div>
