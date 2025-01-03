@@ -6,9 +6,14 @@ export const papers: Paper[] = [
     class: "5",
     years: [
       {
-        year: "2024",
+        year: "2024 English",
         driveLink:
           "https://drive.google.com/file/d/15R6qXEkCd9Psg4OhMKRc_2a3oX8bvVvt/view?usp=drive_link",
+      },
+      {
+        year: "2024 Bengali",
+        driveLink:
+          "https://drive.google.com/file/d/1jGqT9MF9KQXxyjOZKZTrmBF9-uYH7xxx/view?usp=drive_link",
       },
       {
         year: "2023",
@@ -37,9 +42,14 @@ export const papers: Paper[] = [
           "https://drive.google.com/file/d/1HT1LXmosotayIqjA7RtkRbw9RJixw2OQ/view?usp=drive_link",
       },
       {
-        year: "2023",
+        year: "2023 English",
         driveLink:
           "https://drive.google.com/file/d/1o8bExusagyZ0GeMsPv651Gi0HVOoOaIo/view?usp=drive_link",
+      },
+      {
+        year: "2023 Bengali",
+        driveLink:
+          "https://drive.google.com/file/d/1umvg_HxA1Ft7wkq7HdZYowlEbdwA7uPW/view?usp=drive_link",
       },
       {
         year: "2020",
@@ -68,14 +78,19 @@ export const papers: Paper[] = [
           "https://drive.google.com/file/d/1PCMBDV3Gb_KqwWm9HObry8QFLW3HkObv/view?usp=drive_link",
       },
       {
-        year: "2024 Bangla",
+        year: "2024 Bengali",
         driveLink:
           "https://drive.google.com/file/d/1ZFxX2RqO6bVBjQf5m5d3L5vXRu12ErFG/view?usp=drive_link",
       },
       {
-        year: "2023",
+        year: "2023 English",
         driveLink:
           "https://drive.google.com/file/d/1XilE0L-1X2e-0W8Oypgl7ULTiXZj9z-G/view?usp=drive_link",
+      },
+      {
+        year: "2023 Bengali",
+        driveLink:
+          "https://drive.google.com/file/d/1oG-P_JWAkrgsxY2kq26p0-tAANajGD-h/view?usp=drive_link",
       },
       {
         year: "2020",
@@ -99,14 +114,19 @@ export const papers: Paper[] = [
           "https://drive.google.com/file/d/16zX7yCT-ZxVsupoljPZlkmKaw-TuW-Kc/view?usp=drive_link",
       },
       {
-        year: "2024 Bangla",
+        year: "2024 Bengali",
         driveLink:
           "https://drive.google.com/file/d/1C6wQcySNwKqrRBi4GOupwf5k5Ifxr9pW/view?usp=drive_link",
       },
       {
-        year: "2023",
+        year: "2023 English",
         driveLink:
           "https://drive.google.com/file/d/1kTi4AZb2RvpVj0M9BQ_O8MXm3ydZpZj1/view?usp=drive_link",
+      },
+      {
+        year: "2023 Bengali",
+        driveLink:
+          "https://drive.google.com/file/d/1j9RML642FvQtJs4xyINdp2iIPNxkBG_1/view?usp=drive_link",
       },
       {
         year: "2020",
@@ -135,7 +155,7 @@ export const papers: Paper[] = [
           "https://drive.google.com/file/d/1uLh8OUnA-wSnbBVhwz91DG25O5-0siB-/view?usp=drive_link",
       },
       {
-        year: "2024 Bangla",
+        year: "2024 Bengali",
         driveLink:
           "https://drive.google.com/file/d/1ZbtcISf5w5h2jDWK6SM1GABQfDyFcPYh/view?usp=drive_link",
       },
