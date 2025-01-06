@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import ContactPage from "../contact-us";
 import { ResultCommingAlertDialog } from "@/components/Result-comming-soon-dialog";
+import ContactPage from "@/components/contact-us";
 
 export default async function Home() {
   return (

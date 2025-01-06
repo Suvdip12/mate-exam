@@ -1,4 +1,4 @@
-import NavBar from "@/components/NavBar";
+import Navbar from "@/components/Navbar";
 import React from "react";
 
 export default async function Layout({
@@ -8,8 +8,7 @@ export default async function Layout({
 }) {
   return (
     <>
-      <NavBar />
-
+      <Navbar />
       {children}
     </>
   );

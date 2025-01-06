@@ -1,6 +1,6 @@
 "use client";
 
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/Navbar";
 import {
   Accordion,
   AccordionContent,
@@ -8,7 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { papers } from "@/lib/data/question-data";
+import { papers } from "@/data/question-data";
 import { downloadFile, getDirectDownloadLink } from "@/lib/drive-utils";
 import { Download, Loader2 } from "lucide-react";
 import { useState } from "react";
