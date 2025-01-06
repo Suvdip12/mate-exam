@@ -1,6 +1,4 @@
 "use client";
-
-import NavBar from "@/components/Navbar";
 import {
   Accordion,
   AccordionContent,
@@ -40,7 +38,6 @@ export default function QuestionPapers() {
   };
   return (
     <>
-      <NavBar />
       <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white">
         <div className="container mx-auto px-4 py-8">
           <header className="mb-12 text-center">
