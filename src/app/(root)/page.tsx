@@ -1,13 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import ContactPage from "./contact-us";
+import ContactPage from "../contact-us";
 import { ResultCommingAlertDialog } from "@/components/Result-comming-soon-dialog";
-import NavBar from "@/components/NavBar";
 
 export default async function Home() {
   return (
     <>
-      <NavBar />
       <section className="flex flex-col items-center gap-6 bg-sky-50 px-4 py-20 dark:bg-sky-900 md:px-10 lg:flex-row">
         <div className="flex flex-col gap-6">
           <h2 className="text-center text-4xl font-extrabold text-slate-900 dark:text-white md:text-5xl lg:text-left lg:text-7xl">
