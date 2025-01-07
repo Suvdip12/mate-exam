@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
-// const lora = Lora({
-//   subsets: ["latin"],
-// });
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -15,10 +13,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: {
-    template: "%s | MAT-2025",
-    default: "MAT-2025",
-  },
+  title: "MAT-2025",
   description: "PYQs and more for MAT-2025",
 };
 
