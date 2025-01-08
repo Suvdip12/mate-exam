@@ -8,49 +8,56 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { signUpSchema, SignUpValues } from "@/lib/validations";
+import { LoginValues, loginSchema } from "@/lib/validations";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import LoadingButton from "../LoadingButton";
 import { PasswordInput } from "../ui/password-input";
+import LoadingButton from "../LoadingButton";
 import { authClient } from "@/lib/auth-client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
-export default function SignUpForm() {
+export default function LoginForm() {
   const [error, setError] = useState<string>("");
   const [isPending, setIsPending] = useState<boolean>(false);
-  const form = useForm<SignUpValues>({
-    resolver: zodResolver(signUpSchema),
+  const router = useRouter();
+  const form = useForm<LoginValues>({
+    resolver: zodResolver(loginSchema),
     defaultValues: {
-      name: "",
       email: "",
       password: "",
     },
   });
 
   // 2. Define a submit handler.
-  async function onSubmit(values: SignUpValues) {
+  async function onSubmit(values: LoginValues) {
     setError("");
-    const { email, password, name } = values;
-    await authClient.signUp.email(
+    const { email, password } = values;
+    await authClient.signIn.email(
       {
         email,
         password,
-        name,
       },
       {
         onRequest: () => {
           setIsPending(true);
         },
         onSuccess: () => {
-          form.reset();
-          toast.message(
-            "Account created successfully 🎉 Check your email for a verification link.",
-          );
+          router.push("/");
+          router.refresh();
         },
         onError: (ctx) => {
-          setError(ctx.error.message);
+          setError(
+            ctx.error.code === "EMAIL_NOT_VERIFIED"
+              ? "Email not verified please verifie your email"
+              : ctx.error.message || "An error occurred",
+          );
+          if (ctx.error.code === "EMAIL_NOT_VERIFIED") {
+            toast.message(
+              "New verification link sent to your email address 📬",
+            );
+          }
         },
       },
     );
@@ -58,21 +65,8 @@ export default function SignUpForm() {
   }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
         {error && <p className="text-center text-destructive">{error}</p>}
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Name</FormLabel>
-              <FormControl>
-                <Input placeholder="name" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
         <FormField
           control={form.control}
           name="email"
@@ -80,7 +74,7 @@ export default function SignUpForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="email" {...field} />
+                <Input placeholder="email.." {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -100,7 +94,7 @@ export default function SignUpForm() {
           )}
         />
         <LoadingButton loading={isPending} className="w-full" type="submit">
-          Create account
+          Log in
         </LoadingButton>
       </form>
     </Form>
