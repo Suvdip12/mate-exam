@@ -28,6 +28,7 @@ model User {
   updatedAt     DateTime
   sessions      Session[]
   accounts      Account[]
+  results       Result[]
 
   @@map("users")
 }
@@ -76,4 +77,44 @@ model Verification {
   updatedAt  DateTime?
 
   @@map("verifications")
+}
+
+model Center {
+  id          Int      @id @default(autoincrement())
+  center_name String   @db.VarChar(50)
+  center_code String   @unique @db.VarChar(12)
+  result      Result   @relation(fields: [resultId], references: [id])
+  resultId    String   @unique
+  createdAt   DateTime @default(now())
+
+  @@map("centers")
+}
+
+model School {
+  id          Int      @id @default(autoincrement())
+  school_name String   @db.VarChar(50)
+  school_code String   @unique @db.VarChar(12)
+  result      Result   @relation(fields: [resultId], references: [id])
+  resultId    String   @unique
+  createdAt   DateTime @default(now())
+
+  @@map("schools")
+}
+
+model Result {
+  id              String   @id @default(cuid())
+  name            String   @db.VarChar(50)
+  roll_number     String
+  class           String
+  total_attempt   Int
+  correct_attempt Int
+  total_score     Int
+  center          Center?
+  school          School?
+  author          User     @relation(fields: [authorId], references: [id])
+  authorId        String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("results")
 }
