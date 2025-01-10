@@ -17,9 +17,7 @@ interface RaycastMagicLinkEmailProps {
   name?: string;
 }
 
-const baseUrl = process.env.BETTER_AUTH_URL
-  ? `https://${process.env.BETTER_AUTH_URL}`
-  : "";
+const baseUrl = process.env.BETTER_AUTH_URL;
 
 export const MagicLinkEmail = ({
   magicLink,
@@ -52,27 +50,12 @@ export const MagicLinkEmail = ({
           <br />- MAT Team
         </Text>
         <Hr style={hr} />
-        <Img
-          src={`${baseUrl}/kalyani-university-kalyani-logo.png`}
-          width={32}
-          height={32}
-          alt="KU"
-          style={{
-            WebkitFilter: "grayscale(100%)",
-            filter: "grayscale(100%)",
-            margin: "20px 0",
-          }}
-        />
         <Text style={footer}>MAT PG Hall_1.</Text>
         <Text style={footer}>2025 University of Kalyani Kalyani, Nadia</Text>
       </Container>
     </Body>
   </Html>
 );
-
-MagicLinkEmail.PreviewProps = {
-  magicLink: "https://raycast.com",
-} as RaycastMagicLinkEmailProps;
 
 export default MagicLinkEmail;
 

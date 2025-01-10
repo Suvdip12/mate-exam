@@ -13,8 +13,26 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "MAT-2025",
+  title: {
+    template: "%s | MAT-2025",
+    default: "MAT-2025",
+  },
   description: "PYQs and more for MAT-2025",
+  openGraph: {
+    images: [
+      {
+        url: "https://www.matpg1.in/kalyani-university-kalyani-logo.png",
+        width: 600,
+        height: 315,
+      },
+    ],
+    type: "website",
+    siteName: "MAT PG1 2025",
+  },
+  keywords: ["mat", "matpg1", "pg1", "matpg1", "mat2025", "matexam"],
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
