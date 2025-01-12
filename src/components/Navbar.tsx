@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { validateRequest } from "@/auth";
+import { auth, validateRequest } from "@/auth";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 export default async function Navbar() {
   const { user, session } = await validateRequest();
   return (
@@ -16,12 +18,23 @@ export default async function Navbar() {
           />
           <span className="text-xl font-bold">University of Kalyani</span>
         </Link>
-        {user && session.user.role === "admin" ? (
+        {user && (
+          <form
+            action={async () => {
+              "use server";
+              await auth.api.signOut({
+                headers: await headers(),
+              });
+              redirect("/");
+            }}
+          >
+            <Button type="submit">Sign Out</Button>
+          </form>
+        )}
+        {user && session.user.role === "admin" && (
           <Button>
             <Link href="/admin">Dashboard</Link>
           </Button>
-        ) : (
-          ""
         )}
       </div>
     </header>

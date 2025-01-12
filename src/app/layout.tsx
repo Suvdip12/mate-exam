@@ -27,7 +27,7 @@ export const metadata: Metadata = {
       },
     ],
     type: "website",
-    siteName: "MAT PG1 2025",
+    siteName: "MATPG1 2025",
   },
   keywords: ["mat", "matpg1", "pg1", "matpg1", "mat2025", "matexam"],
   icons: {

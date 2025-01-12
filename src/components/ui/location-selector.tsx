@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
@@ -26,12 +26,14 @@ interface LocationSelectorProps {
   disabled?: boolean;
   onCenterChange?: (center: CenterProps | null) => void;
   onSchoolChange?: (school: SchoolProps | null) => void;
+  isFormResat?: boolean;
 }
 
 const LocationSelector = ({
   disabled,
   onCenterChange,
   onSchoolChange,
+  isFormResat,
 }: LocationSelectorProps) => {
   const [selectedCenter, setSelectedCenter] = useState<CenterProps | null>(
     null,
@@ -50,7 +52,12 @@ const LocationSelector = ({
   const availableSchools = schoolData.filter(
     (school) => school.center_id === selectedCenter?.id,
   );
+  useEffect(() => {
+    setSelectedCenter(null);
+    setSelectedSchool(null);
+  }, [isFormResat]);
 
+  // Function to handle Center selection
   const handleCenterSelect = (center: CenterProps | null) => {
     setSelectedCenter(center);
     setSelectedSchool(null); // Reset School when Center changes
@@ -64,7 +71,7 @@ const LocationSelector = ({
   };
 
   return (
-    <div className="flex gap-4">
+    <div className="flex flex-col gap-4">
       {/* Center Selector */}
       <Popover open={openCenterDropdown} onOpenChange={setOpenCenterDropdown}>
         <PopoverTrigger asChild>
@@ -86,7 +93,12 @@ const LocationSelector = ({
             <ChevronsUpDown className="h-4 w-4 shrink-0 opacity-50" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="p-0">
+        <PopoverContent
+          onOpenAutoFocus={(e) => {
+            e.preventDefault();
+          }}
+          className="p-0"
+        >
           <Command>
             <CommandInput placeholder="Search Center..." />
             <CommandList>
@@ -144,7 +156,12 @@ const LocationSelector = ({
               <ChevronsUpDown className="h-4 w-4 shrink-0 opacity-50" />
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="p-0">
+          <PopoverContent
+            onOpenAutoFocus={(e) => {
+              e.preventDefault();
+            }}
+            className="p-0"
+          >
             <Command>
               <CommandInput placeholder="Search School..." />
               <CommandList>

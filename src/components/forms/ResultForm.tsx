@@ -31,6 +31,7 @@ export default function ResultForm() {
   const [score, setScore] = useState<number>();
   const [totalAttemt, setTotalAttemt] = useState<number>(0);
   const [currectAttemt, setCurrectAttemt] = useState<number>(0);
+  const [isFormResat, setIsFormResat] = useState<boolean>(false);
   const [isPending, startTransition] = useTransition(); // 1. Define your form.
 
   const form = useForm<z.infer<typeof resultFormSchema>>({
@@ -53,22 +54,24 @@ export default function ResultForm() {
   });
   // calculate the score
   useEffect(() => {
-    console.log("1");
     const score = calculateScore(totalAttemt, currectAttemt);
     setScore(score);
   }, [totalAttemt, currectAttemt]);
+
+  const handleReset = () => {
+    form.reset();
+    setIsFormResat((prv) => !prv);
+  };
 
   function onSubmit(values: z.infer<typeof resultFormSchema>) {
     startTransition(async () => {
       const { error, message } = await createResult(values);
       if (message) {
         toast.success(message);
-        form.reset();
-        return;
+        handleReset();
       }
       if (error) {
         toast.error(error);
-        return;
       }
     });
   }
@@ -77,7 +80,7 @@ export default function ResultForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="mx-auto max-w-3xl space-y-8 py-10"
+        className="mx-auto max-w-3xl space-y-4 py-10"
       >
         <FormField
           control={form.control}
@@ -87,6 +90,7 @@ export default function ResultForm() {
               <FormLabel>Select Center</FormLabel>
               <FormControl>
                 <LocationSelector
+                  isFormResat={isFormResat}
                   onCenterChange={(center) => {
                     // setCenterName(center?.name || "");
                     form.setValue(field.name, {
@@ -151,7 +155,7 @@ export default function ResultForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Class</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <Select onValueChange={field.onChange} value={field.value}>
                 <FormControl>
                   <SelectTrigger>
                     <SelectValue placeholder="Select student class.." />
@@ -165,11 +169,15 @@ export default function ResultForm() {
                   <SelectItem value="IX">IX</SelectItem>
                 </SelectContent>
               </Select>
+              <FormDescription className="font-bold">
+                This is the roll number of student:{" "}
+                {form.watch("class") &&
+                  `${form.getValues("center.center_code")}/25/${form.getValues("class")}/${form.getValues("roll_number")}`}
+              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-6">
             <FormField
