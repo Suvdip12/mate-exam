@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 // Format the roll number
 export function formatRollNumber(
-  rollNumber: number,
+  rollNumber: string,
   class_name: string,
   center_code: string,
 ): string {

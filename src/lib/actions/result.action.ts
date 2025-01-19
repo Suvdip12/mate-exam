@@ -21,7 +21,7 @@ export async function createResult(
     const score = calculateScore(data.total_attemt, data.currect_attemt);
     // formate the roll number
     const rollNumber = formatRollNumber(
-      Number(data.roll_number),
+      data.roll_number,
       data.class,
       data.center.center_code,
     );
