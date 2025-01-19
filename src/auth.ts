@@ -12,10 +12,10 @@ export const auth = betterAuth({
   session: {
     expiresIn: 60 * 60 * 24 * 7, // 7 days
     updateAge: 60 * 60 * 24, // 1 hour
-    cookieCache: {
-      enabled: true,
-      maxAge: 5 * 60, // cache duration in seconds
-    },
+    // cookieCache: {
+    //   enabled: true,
+    //   maxAge: 5 * 60, // cache duration in seconds
+    // },
   },
   plugins: [admin()],
   emailAndPassword: {
@@ -38,6 +38,7 @@ export const auth = betterAuth({
 } satisfies BetterAuthOptions);
 
 export type Session = typeof auth.$Infer.Session;
+
 export const validateRequest = cache(
   async (): Promise<
     { user: User; session: Session } | { user: null; session: null }

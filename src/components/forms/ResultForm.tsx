@@ -80,7 +80,7 @@ export default function ResultForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="mx-auto max-w-3xl space-y-4 py-10"
+        className="mx-auto max-w-3xl space-y-4 pb-5"
       >
         <FormField
           control={form.control}

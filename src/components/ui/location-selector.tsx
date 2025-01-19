@@ -85,7 +85,9 @@ const LocationSelector = ({
             {selectedCenter ? (
               <div className="flex items-center gap-2">
                 <span>{selectedCenter.emoji}</span>
-                <span>{selectedCenter.name}</span>
+                <span className="whitespace-pre-line">
+                  {selectedCenter.name}
+                </span>
               </div>
             ) : (
               <span>Select Center...</span>
@@ -149,7 +151,9 @@ const LocationSelector = ({
               className="w-full justify-between"
             >
               {selectedSchool ? (
-                <span>{selectedSchool.name}</span>
+                <span className="whitespace-pre-line">
+                  {selectedSchool.name}
+                </span>
               ) : (
                 <span>Select School...</span>
               )}

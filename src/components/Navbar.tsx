@@ -18,23 +18,25 @@ export default async function Navbar() {
           />
           <span className="text-xl font-bold">University of Kalyani</span>
         </Link>
-        {user && (
+        {user && session.user.role !== "admin" ? (
           <form
             action={async () => {
               "use server";
               await auth.api.signOut({
                 headers: await headers(),
               });
-              redirect("/");
+              redirect("/login");
             }}
           >
             <Button type="submit">Sign Out</Button>
           </form>
-        )}
-        {user && session.user.role === "admin" && (
-          <Button>
-            <Link href="/admin">Dashboard</Link>
-          </Button>
+        ) : (
+          user &&
+          session.user.role === "admin" && (
+            <Button>
+              <Link href="/admin">Dashboard</Link>
+            </Button>
+          )
         )}
       </div>
     </header>

@@ -11,6 +11,7 @@ export default async function authMiddleware(request: NextRequest) {
 
   const { data: session } = await betterFetch<Session>(
     "/api/auth/get-session",
+
     {
       baseURL: process.env.BETTER_AUTH_URL,
       headers: {
@@ -19,12 +20,13 @@ export default async function authMiddleware(request: NextRequest) {
       },
     },
   );
+  // console.log(session);
 
   if (!session) {
     if (isAuthRoute) {
       return NextResponse.next();
     }
-    return NextResponse.redirect(new URL("/sign-in", request.url));
+    return NextResponse.redirect(new URL("/login", request.url));
   }
   if (isAuthRoute) {
     return NextResponse.redirect(new URL("/", request.url));

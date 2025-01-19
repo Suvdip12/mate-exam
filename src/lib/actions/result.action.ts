@@ -25,7 +25,6 @@ export async function createResult(
       data.class,
       data.center.center_code,
     );
-
     const existingData = await prisma.result.findFirst({
       where: {
         roll_number: {
@@ -38,45 +37,50 @@ export async function createResult(
     }
 
     // db operation
-    await prisma.result.create({
-      data: {
-        //dumy data
-        name: data.name,
-        roll_number: rollNumber,
-        class: data.class,
-        correct_attempt: data.currect_attemt,
-        total_attempt: data.total_attemt,
-        total_score: score,
-        center: {
-          connectOrCreate: {
-            where: {
-              center_code: data.center.center_code,
-            },
-            create: {
-              center_code: data.center.center_code,
-              center_name: data.center.center,
-            },
-          },
+    const result = await prisma.$transaction(async (tx) => {
+      // Upsert the Center
+      const center = await tx.center.upsert({
+        where: { center_code: data.center.center_code },
+        update: {},
+        create: {
+          center_code: data.center.center_code,
+          center_name: data.center.center,
         },
-        school: {
-          connectOrCreate: {
-            where: {
-              school_code: data.school.school_code,
-            },
-            create: {
-              school_code: data.school.school_code,
-              school_name: data.school.school_name,
-            },
-          },
-        },
-        authorId: session.user.id,
-      },
-    });
+      });
 
+      // Upsert the School
+      const school = await tx.school.upsert({
+        where: { school_code: data.school.school_code },
+        update: {},
+        create: {
+          school_code: data.school.school_code,
+          school_name: data.school.school_name,
+          center: { connect: { id: center.id } },
+        },
+      });
+
+      // Create the Result
+      const result = await tx.result.create({
+        data: {
+          name: data.name,
+          roll_number: rollNumber,
+          class: data.class,
+          total_attempt: data.total_attemt,
+          correct_attempt: data.currect_attemt,
+          total_score: score,
+          center: { connect: { id: center.id } },
+          school: { connect: { id: school.id } },
+          author: { connect: { id: session.user.id } },
+        },
+      });
+
+      return result;
+    });
+    console.log("result", result);
     return { message: "Result created successfully." };
   } catch (error) {
     // Your code here
-    console.log(error);
+
     return { error: "Something went wrong. Please try again later." };
   }
 }

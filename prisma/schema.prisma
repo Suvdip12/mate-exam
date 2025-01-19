@@ -83,8 +83,8 @@ model Center {
   id          Int      @id @default(autoincrement())
   center_name String   @db.VarChar(50)
   center_code String   @unique @db.VarChar(12)
-  result      Result   @relation(fields: [resultId], references: [id])
-  resultId    String   @unique
+  results     Result[]
+  schools     School[]
   createdAt   DateTime @default(now())
 
   @@map("centers")
@@ -94,8 +94,9 @@ model School {
   id          Int      @id @default(autoincrement())
   school_name String   @db.VarChar(50)
   school_code String   @unique @db.VarChar(12)
-  result      Result   @relation(fields: [resultId], references: [id])
-  resultId    String   @unique
+  results     Result[]
+  center      Center   @relation(fields: [centerId], references: [id])
+  centerId    Int
   createdAt   DateTime @default(now())
 
   @@map("schools")
@@ -109,8 +110,10 @@ model Result {
   total_attempt   Int
   correct_attempt Int
   total_score     Int
-  center          Center?
-  school          School?
+  center          Center   @relation(fields: [centerId], references: [id])
+  centerId        Int
+  school          School   @relation(fields: [schoolId], references: [id])
+  schoolId        Int
   author          User     @relation(fields: [authorId], references: [id])
   authorId        String
   createdAt       DateTime @default(now())

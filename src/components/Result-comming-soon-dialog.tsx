@@ -24,9 +24,9 @@ export function ResultCommingAlertDialog() {
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Result Not Published yet</AlertDialogTitle>
+          <AlertDialogTitle>Result Published at 25th January</AlertDialogTitle>
           <AlertDialogDescription>
-            The exam will be conducted, and the results will be published later.
+            The exam will be conducted, and the results will be published soon.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

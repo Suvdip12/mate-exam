@@ -10,10 +10,10 @@ import React from "react";
 
 export default function page() {
   return (
-    <main className="flex h-screen items-center justify-center p-5">
+    <main className="flex h-screen items-center justify-center p-2">
       <div>
-        <Card className="w-[350px]">
-          <CardHeader>
+        <Card className="max-w-2xl">
+          <CardHeader className="p-4">
             <CardTitle>Add Result</CardTitle>
             <CardDescription>
               Please enter the student details below.
