@@ -3,8 +3,6 @@ import { resultFormSchema, ResultFormValues } from "@/lib/validations";
 import { calculateScore, formatRollNumber } from "../utils";
 import { prisma } from "../prisma";
 import { validateRequest } from "@/auth";
-import { TopRankerResult } from "@/types/prisma.types";
-import { GetTopRanksResponse } from "@/types/types";
 
 export async function createResult(
   data: ResultFormValues,
@@ -87,44 +85,44 @@ export async function createResult(
   }
 }
 
-export async function getTopRankers(
-  input: "V" | "VI" | "VII" | "VIII" | "IX",
-): Promise<GetTopRanksResponse> {
-  try {
-    console.log("input", input);
-    const rankers = await prisma.$queryRaw<TopRankerResult[]>`
-      WITH RankedResults AS (
-    SELECT 
-        r.name,
-        r.roll_number,
-        r.class,
-        r.total_score,
-        DENSE_RANK() OVER (ORDER BY r.total_score DESC) as rank,
-        s.school_name,
-        s.school_code, -- Added school_code
-        c.center_name,
-        c.center_code  -- Added center_code
-    FROM 
-        results r
-    JOIN 
-        schools s ON r."schoolId" = s.id
-    JOIN 
-        centers c ON r."centerId" = c.id
-    WHERE
-    r.class=${input}
-)
-SELECT *
-FROM RankedResults
-WHERE rank <= 10
-ORDER BY total_score DESC,name;`;
+// export async function getTopRankers(
+//   input: "V" | "VI" | "VII" | "VIII" | "IX",
+// ): Promise<GetTopRanksResponse> {
+//   try {
+//     console.log("input", input);
+//     const rankers = await prisma.$queryRaw<TopRankerResult[]>`
+//       WITH RankedResults AS (
+//     SELECT
+//         r.name,
+//         r.roll_number,
+//         r.class,
+//         r.total_score,
+//         DENSE_RANK() OVER (ORDER BY r.total_score DESC) as rank,
+//         s.school_name,
+//         s.school_code, -- Added school_code
+//         c.center_name,
+//         c.center_code  -- Added center_code
+//     FROM
+//         results r
+//     JOIN
+//         schools s ON r."schoolId" = s.id
+//     JOIN
+//         centers c ON r."centerId" = c.id
+//     WHERE
+//     r.class=${input}
+// )
+// SELECT *
+// FROM RankedResults
+// WHERE rank <= 10
+// ORDER BY total_score DESC,name;`;
 
-    console.log("getTopRankers", rankers);
-    return { success: true, data: rankers };
-  } catch (error) {
-    console.log(JSON.stringify(error));
-    return {
-      success: false,
-      error: "Something went wrong. Please try again later.",
-    };
-  }
-}
+//     console.log("getTopRankers", rankers);
+//     return { success: true, data: rankers };
+//   } catch (error) {
+//     console.log(JSON.stringify(error));
+//     return {
+//       success: false,
+//       error: "Something went wrong. Please try again later.",
+//     };
+//   }
+// }
