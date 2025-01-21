@@ -46,7 +46,7 @@ ORDER BY total_score DESC,name;`;
     [className],
     {
       tags: ["getTopRankers"],
-      revalidate: 3 * 30 * 24 * 60 * 60,
+      revalidate: 3 * 60 * 60,
     },
   );
 
