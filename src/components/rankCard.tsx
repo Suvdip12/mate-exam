@@ -47,7 +47,7 @@ export default function RankCard({ result }: { result: StudentResult }) {
             alt="Logo 2"
             className="mt-2 object-contain md:mt-0"
           />
-          <h3>UNIVERSITY OF KALYANI</h3>
+          <h2 className="font-title font-bold">UNIVERSITY OF KALYANI</h2>
         </section>
 
         <section className="flex flex-col md:flex-row">
