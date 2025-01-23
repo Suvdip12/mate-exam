@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Lato } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
+import NextTopLoader from "nextjs-toploader";
+const lato = Lato({
+  weight: ["400"],
+  subsets: ["latin", "latin-ext"],
 });
 
 export const metadata: Metadata = {
@@ -42,7 +38,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={lato.className}>
+        <NextTopLoader color="#611BF8" zIndex={999} showSpinner />
         {children}
         <Toaster expand={true} richColors />
       </body>
