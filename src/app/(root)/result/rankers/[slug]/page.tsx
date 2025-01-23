@@ -4,12 +4,13 @@ import { ArrowLeft } from "lucide-react";
 import { unstable_cache } from "next/cache";
 import Link from "next/link";
 
-interface PageProps {
-  params: { className: string };
-}
-export default async function TopRankerResultPage({ params }: PageProps) {
+export default async function TopRankerResultPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   //get data funcation
-  const { className } = await params;
+  const { slug: className } = await params;
   const getCachedTopRankers = unstable_cache(
     async (className: string) => {
       const rankers = await prisma.$queryRaw<TopRankerResult[]>`
