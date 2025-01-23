@@ -4,15 +4,14 @@ import { ArrowLeft } from "lucide-react";
 import { unstable_cache } from "next/cache";
 import Link from "next/link";
 
-export default async function TopRankerResultPage({
-  params,
-}: {
+interface PageProps {
   params: { className: string };
-}) {
-  const { className } = await params;
+}
+export default async function TopRankerResultPage({ params }: PageProps) {
   //get data funcation
+  const { className } = await params;
   const getCachedTopRankers = unstable_cache(
-    async (className) => {
+    async (className: string) => {
       const rankers = await prisma.$queryRaw<TopRankerResult[]>`
       WITH RankedResults AS (
     SELECT 
@@ -85,16 +84,37 @@ ORDER BY total_score DESC,name;`;
                   key={ranker.id}
                   className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}
                 >
-                  <td className="px-4 py-2 font-medium">{ranker.rank}</td>
-                  <td className="px-4 py-2">{ranker.name}</td>
-                  <td className="hidden px-4 py-2 md:table-cell">
+                  <td key={ranker.id} className="px-4 py-2 font-medium">
+                    {ranker.rank}{" "}
+                    {Number(ranker.rank) > 3
+                      ? "th"
+                      : ranker.rank === "1"
+                        ? "st"
+                        : ranker.rank === "2"
+                          ? "nd"
+                          : "rd"}
+                  </td>
+                  <td key={ranker.id} className="px-4 py-2">
+                    {ranker.name.toUpperCase()}
+                  </td>
+                  <td
+                    key={ranker.id}
+                    className="hidden px-4 py-2 md:table-cell"
+                  >
                     {ranker.class}
                   </td>
-                  <td className="hidden px-4 py-2 sm:table-cell">
+                  <td
+                    key={ranker.id}
+                    className="hidden px-4 py-2 sm:table-cell"
+                  >
                     {ranker.center_name}
                   </td>
-                  <td className="px-4 py-2 text-right">{ranker.roll_number}</td>
-                  <td className="px-4 py-2 text-right">{ranker.total_score}</td>
+                  <td key={ranker.id} className="px-4 py-2 text-right">
+                    {ranker.roll_number.toUpperCase()}
+                  </td>
+                  <td key={ranker.id} className="px-4 py-2 text-right">
+                    {ranker.total_score}
+                  </td>
                 </tr>
               ))}
             </tbody>

@@ -42,7 +42,7 @@ export default function Result() {
             type="text"
             id="rollNumber"
             name="rollNumber"
-            placeholder="Enter your roll number eg. KU/25/VII/"
+            placeholder="Enter your roll number eg. KU/25/VII/123"
             className="focus:ring-primary-500 rounded-md border border-neutral-300 px-4 py-2 text-neutral-950 focus:outline-none focus:ring"
           />
         </div>
