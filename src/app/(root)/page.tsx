@@ -36,6 +36,27 @@ export default async function Home() {
           className="lg:w-6/12"
         />
       </section>
+
+      <section>
+        {/* notice */}
+        <div id="notice">
+          <div className="mx-auto w-full max-w-full rounded-lg p-6 shadow">
+            <h1 className="font-title mb-4 text-2xl text-neutral-950">
+              Notice Board
+            </h1>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <div className="rounded-md border bg-primary p-4 text-secondary">
+                <h2 className="text-lg font-semibold">Result Reminder 🎉</h2>
+                <p className="text-sm">
+                  The results for MAT-2025 are coming soon on 25th January 2025
+                  👍🎉.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section
         id="discover-examshare"
         className="flex flex-col items-center gap-7 px-4 py-14 md:px-10 lg:flex-row"
