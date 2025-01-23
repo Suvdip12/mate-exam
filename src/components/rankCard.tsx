@@ -1,34 +1,42 @@
 "use client";
-import { DownloadIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import React from "react";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
 import Image from "next/image";
 import { StudentResult } from "@/types/prisma.types";
 import signature from "@/assets/signature.png";
-export default function RankCard({ result }: { result: StudentResult }) {
-  const printRef = React.useRef(null);
-  const handleDownload = async () => {
-    // Implement download logic here
+import { useReactToPrint } from "react-to-print";
+import { PrinterIcon } from "lucide-react";
 
-    const printElement = printRef.current;
-    if (!printElement) return;
-    const canvas = await html2canvas(printElement, {
-      scale: 2,
-    });
-    const data = canvas.toDataURL("image/png");
-    const pdf = new jsPDF({
-      orientation: "portrait",
-      unit: "px",
-      format: "a4",
-    });
-    const imgProperties = pdf.getImageProperties(data);
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
-    pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);
-    pdf.save(`${result.name}-rank-card.pdf`);
-  };
+export default function RankCard({ result }: { result: StudentResult }) {
+  const printRef = React.useRef<HTMLDivElement>(null);
+  const handlePrint = useReactToPrint({
+    contentRef: printRef,
+    documentTitle: `${result.name}-rank-card.pdf`,
+  });
+  // const handleDownload = async () => {
+  //   // Implement download logic here
+
+  //   const printElement = printRef.current;
+  //   if (!printElement || !printRef) return;
+
+  //   const canvas = await html2canvas(printElement, {
+  //     scale: 2,
+  //     logging: false,
+  //     useCORS: true,
+  //     scrollY: -window.scrollY,
+  //   });
+  //   const data = canvas.toDataURL("image/png");
+  //   const pdf = new jsPDF({
+  //     orientation: "portrait",
+  //     unit: "px",
+  //     format: [canvas.width, canvas.height],
+  //   });
+  //   // const imgProperties = pdf.getImageProperties(data);
+  //   // const pdfWidth = pdf.internal.pageSize.getWidth();
+  //   // const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+  //   pdf.addImage(data, "PNG", 0, 0, canvas.width, canvas.height);
+  //   pdf.save(`${result.name}-rank-card.pdf`);
+  // };
   // console.log(result);
 
   return (
@@ -115,9 +123,9 @@ export default function RankCard({ result }: { result: StudentResult }) {
         </div>
       </div>
       <div className="mt-4 text-right">
-        <Button onClick={handleDownload} className="rounded-md px-4 py-2">
-          <DownloadIcon className="mr-2 size-5" />
-          Download
+        <Button onClick={() => handlePrint()} className="rounded-md px-4 py-2">
+          <PrinterIcon className="mr-2 size-5" />
+          Print
         </Button>
       </div>
     </div>

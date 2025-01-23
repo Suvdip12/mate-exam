@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ResultCommingAlertDialog } from "@/components/Result-comming-soon-dialog";
 import ContactPage from "@/components/ContactUs";
+import { NotepadTextIcon } from "lucide-react";
 
 export default async function Home() {
   return (
@@ -41,15 +42,18 @@ export default async function Home() {
         {/* notice */}
         <div id="notice">
           <div className="mx-auto w-full max-w-full rounded-lg p-6 shadow">
-            <h1 className="font-title mb-4 text-2xl text-neutral-950">
-              Notice Board
-            </h1>
+            <div className="mb-3 flex items-center justify-start">
+              <NotepadTextIcon className="mr-2 size-9" />
+              <h1 className="font-title text-2xl text-neutral-950">
+                Notice Board
+              </h1>
+            </div>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
               <div className="rounded-md border bg-primary p-4 text-secondary">
                 <h2 className="text-lg font-semibold">Result Reminder 🎉</h2>
                 <p className="text-sm">
                   The results for MAT-2025 are coming soon on 25th January 2025
-                  👍🎉.
+                  👍🎉
                 </p>
               </div>
             </div>
