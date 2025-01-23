@@ -36,6 +36,7 @@ export default async function Home() {
           className="lg:w-6/12"
         />
       </section>
+
       <section
         id="discover-examshare"
         className="flex flex-col items-center gap-7 px-4 py-14 md:px-10 lg:flex-row"

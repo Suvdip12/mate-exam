@@ -1,5 +1,3 @@
-import { TopRankerResult } from "./prisma.types";
-
 export interface Years {
   year: string;
   driveLink: string;
@@ -25,7 +23,3 @@ export interface SchoolProps {
   center_name: string;
   school_code: string;
 }
-
-export type GetTopRanksResponse =
-  | { success: true; data: TopRankerResult[] }
-  | { success: false; error: string };

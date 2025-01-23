@@ -2,7 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { TopRankerResult } from "@/types/prisma.types";
 import { unstable_cache } from "next/cache";
 
-export default async function ClassPage({
+export default async function TopRankerResultPage({
   params,
 }: {
   params: { className: string };

@@ -3,6 +3,7 @@ import { resultFormSchema, ResultFormValues } from "@/lib/validations";
 import { calculateScore, formatRollNumber } from "../utils";
 import { prisma } from "../prisma";
 import { validateRequest } from "@/auth";
+import { StudentResult } from "@/types/prisma.types";
 
 export async function createResult(
   data: ResultFormValues,
@@ -85,44 +86,57 @@ export async function createResult(
   }
 }
 
-// export async function getTopRankers(
-//   input: "V" | "VI" | "VII" | "VIII" | "IX",
-// ): Promise<GetTopRanksResponse> {
-//   try {
-//     console.log("input", input);
-//     const rankers = await prisma.$queryRaw<TopRankerResult[]>`
-//       WITH RankedResults AS (
-//     SELECT
-//         r.name,
-//         r.roll_number,
-//         r.class,
-//         r.total_score,
-//         DENSE_RANK() OVER (ORDER BY r.total_score DESC) as rank,
-//         s.school_name,
-//         s.school_code, -- Added school_code
-//         c.center_name,
-//         c.center_code  -- Added center_code
-//     FROM
-//         results r
-//     JOIN
-//         schools s ON r."schoolId" = s.id
-//     JOIN
-//         centers c ON r."centerId" = c.id
-//     WHERE
-//     r.class=${input}
-// )
-// SELECT *
-// FROM RankedResults
-// WHERE rank <= 10
-// ORDER BY total_score DESC,name;`;
+export async function getStudentResult(
+  rollNumber: string,
+): Promise<StudentResult | null> {
+  const result = await prisma.result.findFirst({
+    where: {
+      roll_number: {
+        equals: rollNumber,
+        mode: "insensitive",
+      },
+    },
+    include: {
+      school: true,
+      center: true,
+    },
+  });
 
-//     console.log("getTopRankers", rankers);
-//     return { success: true, data: rankers };
-//   } catch (error) {
-//     console.log(JSON.stringify(error));
-//     return {
-//       success: false,
-//       error: "Something went wrong. Please try again later.",
-//     };
-//   }
-// }
+  if (!result) {
+    return null;
+  }
+
+  // Fetch all classmates' scores in a single query
+  const classmatesScores = await prisma.result.findMany({
+    where: {
+      class: result.class,
+    },
+    select: {
+      total_score: true,
+    },
+    orderBy: {
+      total_score: "desc",
+    },
+  });
+
+  // Calculate rank efficiently
+  const classRank =
+    classmatesScores.findIndex(
+      (score) => score.total_score <= result.total_score,
+    ) + 1;
+
+  return {
+    ...result,
+    rank: classRank,
+    school: {
+      id: result.school.id,
+      name: result.school.school_name,
+      code: result.school.school_code,
+    },
+    center: {
+      id: result.center.id,
+      name: result.center.center_name,
+      code: result.center.center_code,
+    },
+  };
+}
