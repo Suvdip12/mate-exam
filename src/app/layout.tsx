@@ -3,6 +3,7 @@ import { Lato } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import NextTopLoader from "nextjs-toploader";
+import { Analytics } from "@vercel/analytics/next";
 const lato = Lato({
   weight: ["400"],
   subsets: ["latin", "latin-ext"],
@@ -42,6 +43,7 @@ export default function RootLayout({
         <NextTopLoader color="#611BF8" zIndex={999} showSpinner />
         {children}
         <Toaster expand={true} richColors />
+        <Analytics />
       </body>
     </html>
   );
