@@ -51,8 +51,18 @@ export default function Result() {
           type="submit"
           className="rounded-md px-4 py-2"
         >
-          <SearchIcon className="mr-2 size-5" />
-          {isPending ? "Searching..." : "Search"}
+          {isPending ? (
+            <div className="flex items-center gap-3">
+              <div className="h-2 w-2 animate-bounce rounded-full bg-[#ffff] [animation-delay:-0.3s]"></div>
+              <div className="h-2 w-2 animate-bounce rounded-full bg-[#ffff] [animation-delay:-0.15s]"></div>
+              <div className="h-2 w-2 animate-bounce rounded-full bg-[#ffff]"></div>
+            </div>
+          ) : (
+            <>
+              <SearchIcon className="mr-2 h-5 w-5" />
+              Search
+            </>
+          )}
         </Button>
       </form>
       <div className="mt-8">
@@ -62,7 +72,15 @@ export default function Result() {
         {!searchResults ? (
           <ul className="mt-4 space-y-2">
             <li className="rounded-md border border-neutral-300 px-4 py-2 text-neutral-950">
-              No results found. Please verify your roll number.
+              Please verify your roll number. If you are sure it is correct, and
+              still not able to find your result, please contact us at
+              <a
+                href="tel:+919382553880"
+                className="ml-1 text-blue-600 hover:underline"
+              >
+                +91-9382553880
+              </a>
+              .
             </li>
           </ul>
         ) : (

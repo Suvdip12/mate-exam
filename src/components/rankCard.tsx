@@ -100,9 +100,18 @@ export default function RankCard({ result }: { result: StudentResult }) {
           </thead>
           <tbody>
             <tr className="border">
-              <td className="px-2 py-2 sm:px-4">{result.name}</td>
+              <td className="px-2 py-2 sm:px-4">{result.name.toUpperCase()}</td>
               <td className="px-2 py-2 sm:px-4">{result.total_score}</td>
-              <td className="px-2 py-2 sm:px-4">{result.rank}</td>
+              <td className="px-2 py-2 sm:px-4">
+                {result.rank}{" "}
+                {result.rank === 1
+                  ? "st"
+                  : result.rank === 2
+                    ? "nd"
+                    : result.rank === 3
+                      ? "rd"
+                      : "th"}{" "}
+              </td>
               <td className="px-2 py-2 sm:px-4">{result.total_attempt}</td>
               <td className="px-2 py-2 sm:px-4">{result.correct_attempt}</td>
             </tr>
@@ -112,7 +121,14 @@ export default function RankCard({ result }: { result: StudentResult }) {
         <div className="mt-4 border-t pt-4">
           <div className="flex flex-col items-center justify-between md:flex-row">
             <div className="text-xs sm:text-sm">
-              <b>Rank in Figure:</b> {result.rank}
+              <b>Rank in Figure:</b> {result.rank}{" "}
+              {result.rank === 1
+                ? "st"
+                : result.rank === 2
+                  ? "nd"
+                  : result.rank === 3
+                    ? "rd"
+                    : "th"}
             </div>
           </div>
         </div>

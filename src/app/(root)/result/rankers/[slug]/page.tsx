@@ -51,9 +51,20 @@ ORDER BY total_score DESC,name;`;
       revalidate: 3 * 60 * 60,
     },
   );
+  const getRankSuffix = (rank: number): string => {
+    if (rank > 3) return "th";
+    return ["st", "nd", "rd"][rank - 1] || "th";
+  };
 
   const data = await getCachedTopRankers(className);
   // console.log(data);
+  if (!data || data.length === 0) {
+    return (
+      <div className="text-center text-2xl font-bold text-destructive">
+        Rankers not found for class {className} please try again
+      </div>
+    );
+  }
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center p-4">
@@ -82,40 +93,21 @@ ORDER BY total_score DESC,name;`;
             <tbody>
               {data.map((ranker, index) => (
                 <tr
-                  key={ranker.id}
+                  key={`${ranker.id}-${index}`}
                   className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}
                 >
-                  <td key={ranker.id} className="px-4 py-2 font-medium">
-                    {ranker.rank}{" "}
-                    {Number(ranker.rank) > 3
-                      ? "th"
-                      : ranker.rank === "1"
-                        ? "st"
-                        : ranker.rank === "2"
-                          ? "nd"
-                          : "rd"}
-                  </td>
-                  <td key={ranker.id} className="px-4 py-2">
-                    {ranker.name.toUpperCase()}
-                  </td>
-                  <td
-                    key={ranker.id}
-                    className="hidden px-4 py-2 md:table-cell"
-                  >
+                  <td className="px-4 py-2 font-medium">{`${ranker.rank}${getRankSuffix(Number(ranker.rank))}`}</td>
+                  <td className="px-4 py-2">{ranker.name.toUpperCase()}</td>
+                  <td className="hidden px-4 py-2 md:table-cell">
                     {ranker.class}
                   </td>
-                  <td
-                    key={ranker.id}
-                    className="hidden px-4 py-2 sm:table-cell"
-                  >
+                  <td className="hidden px-4 py-2 sm:table-cell">
                     {ranker.center_name}
                   </td>
-                  <td key={ranker.id} className="px-4 py-2 text-right">
+                  <td className="px-4 py-2 text-right">
                     {ranker.roll_number.toUpperCase()}
                   </td>
-                  <td key={ranker.id} className="px-4 py-2 text-right">
-                    {ranker.total_score}
-                  </td>
+                  <td className="px-4 py-2 text-right">{ranker.total_score}</td>
                 </tr>
               ))}
             </tbody>
