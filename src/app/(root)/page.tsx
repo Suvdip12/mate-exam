@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ResultCommingAlertDialog } from "@/components/Result-comming-soon-dialog";
 import ContactPage from "@/components/ContactUs";
-import { NotepadTextIcon } from "lucide-react";
+import { NotepadTextIcon, ScrollTextIcon } from "lucide-react";
+import AnimatedButton from "@/components/animated-button";
 
 export default async function Home() {
   return (
@@ -25,7 +25,33 @@ export default async function Home() {
             >
               Explore Past Questions
             </Link>
-            <ResultCommingAlertDialog />
+            <Link href="/result">
+              <AnimatedButton>
+                <span className="flex items-center justify-center gap-2">
+                  Check Result
+                  <ScrollTextIcon className="h-6 w-6 text-pretty" />
+                </span>
+              </AnimatedButton>
+            </Link>
+            {/* top rankers button */}
+            <Link href="/result/rankers">
+              <button
+                className="group relative isolation-auto z-10 mx-auto flex w-full items-center justify-center gap-2 overflow-hidden rounded-full border-2 bg-[#0A0D2D] px-4 py-2 font-sans text-lg text-gray-50 shadow-xl backdrop-blur-md before:absolute before:-left-full before:-z-10 before:aspect-square before:w-full before:rounded-full before:bg-emerald-500 before:transition-all before:duration-700 hover:text-gray-50 before:hover:left-0 before:hover:w-full before:hover:scale-150 before:hover:duration-700 lg:font-semibold"
+                type="submit"
+              >
+                Check Top Rankers
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 19"
+                  className="h-8 w-8 rotate-45 justify-end rounded-full border border-gray-700 bg-gray-50 p-2 text-gray-50 duration-300 ease-linear group-hover:rotate-90 group-hover:border-none group-hover:bg-gray-50"
+                >
+                  <path
+                    className="fill-gray-800 group-hover:fill-gray-800"
+                    d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                  ></path>
+                </svg>
+              </button>
+            </Link>
           </div>
         </div>
         <Image
@@ -43,12 +69,24 @@ export default async function Home() {
         <div id="notice">
           <div className="mx-auto w-full max-w-full rounded-lg p-6 shadow">
             <div className="mb-3 flex items-center justify-start">
-              <NotepadTextIcon className="mr-2 size-9" />
-              <h1 className="font-title text-2xl text-neutral-950">
+              <NotepadTextIcon className="mr-2 size-9 text-primary" />
+              <strong className="font-title text-2xl text-neutral-950">
                 Notice Board
-              </h1>
+              </strong>
             </div>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <div className="rounded-md border bg-primary p-4 text-secondary">
+                <strong className="text-lg font-semibold">
+                  Result Published 👍 🎉
+                </strong>
+                <p className="text-sm">
+                  The results for MAT-2024 have been published. Click the link
+                  below to check your result.
+                  <Link className="ml-2 underline" href="/result">
+                    Click here
+                  </Link>
+                </p>
+              </div>
               <div className="rounded-md border bg-primary p-4 text-secondary">
                 <h2 className="text-lg font-semibold">Result Reminder 🎉</h2>
                 <p className="text-sm">
