@@ -92,7 +92,7 @@ export default async function Home() {
                   Exam Notice 👍 🎉
                 </strong>
                 <p className="text-sm">
-                  The exam for MAT-2024 will be held on{" "}
+                  The exam for MAT-2026 will be held on{" "}
                   <span className="font-semibold">12 January</span>. Click the
                   link below for more details.
                   <Link className="ml-2 underline" href="#faqs">
