@@ -11,10 +11,10 @@ const lato = Lato({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | MAT-2025",
-    default: "MAT-2025",
+    template: "%s | MAT-2026",
+    default: "MAT-2026",
   },
-  description: "PYQs and more for MAT-2025",
+  description: "PYQs and more for MAT-2026",
   openGraph: {
     images: [
       {
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
       },
     ],
     type: "website",
-    siteName: "MATPG1 2025",
+    siteName: "MATPG1 2026",
   },
-  keywords: ["mat", "matpg1", "pg1", "matpg1", "mat2025", "matexam"],
+  keywords: ["mat", "matpg1", "pg1", "matpg1", "mat2026", "matexam"],
   icons: {
     icon: "/favicon.ico",
   },

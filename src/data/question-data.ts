@@ -6,6 +6,16 @@ export const papers: Paper[] = [
     class: "5",
     years: [
       {
+        year: "2025 English",
+        driveLink:
+          "https://drive.google.com/file/d/1yHoK86xPvf82GuZI-7mu7b0hi81gIE9B/view?usp=drive_link",
+      },
+      {
+        year: "2025 Bengali",
+        driveLink:
+          "https://drive.google.com/file/d/1zxdK1iUqqL5K1GKmEs1wh5puOKGtAjsY/view?usp=drive_link",
+      },
+      {
         year: "2024 English",
         driveLink:
           "https://drive.google.com/file/d/15R6qXEkCd9Psg4OhMKRc_2a3oX8bvVvt/view?usp=drive_link",
@@ -36,6 +46,16 @@ export const papers: Paper[] = [
     type: "MAT PYQs Class",
     class: "6",
     years: [
+      {
+        year: "2025 English",
+        driveLink:
+          "https://drive.google.com/file/d/1m8K98XK109N_n_3ezJphwSIt3bY69Inw/view?usp=drive_link",
+      },
+      {
+        year: "2025 Bengali",
+        driveLink:
+          "https://drive.google.com/file/d/1p9-HjJWA0hXgQAxzKU6fDPT5f7cFa3Xp/view?usp=drive_link",
+      },
       {
         year: "2024",
         driveLink:
@@ -73,6 +93,16 @@ export const papers: Paper[] = [
     class: "7",
     years: [
       {
+        year: "2025 English",
+        driveLink:
+          "https://drive.google.com/file/d/1ELHA8at48JwoS6KhItnms-Jwu4oWWOWA/view?usp=drive_link",
+      },
+      {
+        year: "2025 Bengali",
+        driveLink:
+          "https://drive.google.com/file/d/1XII6ylwGLk3nZye-UW3XQ943y4JLU5nB/view?usp=drive_link",
+      },
+      {
         year: "2024 English",
         driveLink:
           "https://drive.google.com/file/d/1PCMBDV3Gb_KqwWm9HObry8QFLW3HkObv/view?usp=drive_link",
@@ -108,6 +138,16 @@ export const papers: Paper[] = [
     type: "MAT PYQs Class",
     class: "8",
     years: [
+      {
+        year: "2025 English",
+        driveLink:
+          "https://drive.google.com/file/d/1r2y2JMYdgk6dQIwWp2LVWxXjAD6aOxNB/view?usp=drive_link",
+      },
+      {
+        year: "2025 Bengali",
+        driveLink:
+          "https://drive.google.com/file/d/1tcuIB3ZX-DsvrlIpP7Bi9Y2yRSq-CCFu/view?usp=drive_link",
+      },
       {
         year: "2024 English",
         driveLink:
@@ -149,6 +189,16 @@ export const papers: Paper[] = [
     type: "MAT PYQs Class",
     class: "9",
     years: [
+      {
+        year: "2025 English",
+        driveLink:
+          "https://drive.google.com/file/d/1sW6IH4RK2vxeG4Mv8cxwQ-fvcncJTxkt/view",
+      },
+      {
+        year: "2025 Bengali",
+        driveLink:
+          "https://drive.google.com/file/d/1TT3wi11_JtkdB61zpFrUgPHfi0zYLP54/view?usp=drive_link",
+      },
       {
         year: "2024 English",
         driveLink:

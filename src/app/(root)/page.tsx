@@ -10,10 +10,10 @@ export default async function Home() {
       <section className="flex flex-col items-center gap-6 bg-sky-50 px-4 py-20 dark:bg-sky-900 md:px-10 lg:flex-row">
         <div className="flex flex-col gap-6">
           <h2 className="text-center text-4xl font-extrabold text-slate-900 dark:text-white md:text-5xl lg:text-left lg:text-7xl">
-            MATHEMATICS APTITUTE TEST 2025
+            MATHEMATICS APTITUTE TEST 2026
           </h2>
           <p className="max-w-prose text-center md:text-lg lg:text-left lg:text-xl">
-            MAT-2025 is a mathematics entrance test focused on enhancing
+            MAT-2026 is a mathematics entrance test focused on enhancing
             problem-solving and analytical skills. It covers key topics like
             algebra, calculus, geometry, and logical reasoning. The exam aims to
             boost mathematical aptitude for academic and professional growth.
@@ -75,7 +75,7 @@ export default async function Home() {
               </strong>
             </div>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-              <div className="rounded-md border bg-primary p-4 text-secondary">
+              {/* <div className="rounded-md border bg-primary p-4 text-secondary">
                 <strong className="text-lg font-semibold">
                   Result Published 👍 🎉
                 </strong>
@@ -86,11 +86,26 @@ export default async function Home() {
                     Click here
                   </Link>
                 </p>
+              </div> */}
+              <div className="rounded-md border bg-primary p-4 text-secondary">
+                <strong className="text-lg font-semibold">
+                  Exam Notice 👍 🎉
+                </strong>
+                <p className="text-sm">
+                  The exam for MAT-2024 will be held on{" "}
+                  <span className="font-semibold">12 January</span>. Click the
+                  link below for more details.
+                  <Link className="ml-2 underline" href="#faqs">
+                    Click here
+                  </Link>
+                </p>
               </div>
               <div className="rounded-md border bg-primary p-4 text-secondary">
-                <h2 className="text-lg font-semibold">Result Reminder 🎉</h2>
+                <h2 className="text-lg font-semibold">
+                  🎓 MAT-2026 Exam Form Fill-Up Has Started! 🎉
+                </h2>
                 <p className="text-sm">
-                  The results for MAT-2025 are coming soon on 25th January 2025
+                  The exam form fill-up for MAT-2026 has officially started!
                   👍🎉
                 </p>
               </div>

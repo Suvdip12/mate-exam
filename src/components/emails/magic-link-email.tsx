@@ -51,7 +51,7 @@ export const MagicLinkEmail = ({
         </Text>
         <Hr style={hr} />
         <Text style={footer}>MAT PG Hall_1.</Text>
-        <Text style={footer}>2025 University of Kalyani Kalyani, Nadia</Text>
+        <Text style={footer}>2026 University of Kalyani Kalyani, Nadia</Text>
       </Container>
     </Body>
   </Html>

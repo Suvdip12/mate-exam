@@ -31,7 +31,7 @@ export default function Result() {
   return (
     <div className="rounded-lg bg-white p-6 shadow-lg">
       <h1 className="font-title mb-6 text-2xl text-neutral-950">
-        Search Your Result
+        Search Your Result-2025
       </h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <div className="flex flex-col">

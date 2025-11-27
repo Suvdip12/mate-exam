@@ -96,3 +96,7 @@
     stroke-dashoffset: -125px;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
