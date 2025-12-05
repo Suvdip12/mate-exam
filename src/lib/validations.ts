@@ -82,3 +82,31 @@ export const resultFormSchema = z
     },
   );
 export type ResultFormValues = z.infer<typeof resultFormSchema>;
+
+export const studentSchema = z.object({
+  firstName: z.string().min(2, "First name must be at least 2 characters"),
+  lastName: z.string().min(2, "Last name must be at least 2 characters"),
+  center: centerSchema,
+  school: schoolSchema,
+  class: z.string().min(1, "Class is required"),
+  paper: z.string().min(1, "paper is required"),
+  dateOfBirth: z.coerce
+    .date({
+      required_error: "Date of birth is required",
+    })
+    .optional(),
+  phoneNumber: z
+    .string()
+    .optional()
+    .refine(
+      (val) => !val || /^[0-9\s\-+]*$/.test(val),
+      "Invalid phone number format",
+    ),
+});
+export type StudentFormValues = z.infer<typeof studentSchema>;
+
+export const studentSearchSchema = z.object({
+  query: z.string().min(3, "Enter roll number or name"),
+});
+
+export type StudentSearchValues = z.infer<typeof studentSearchSchema>;

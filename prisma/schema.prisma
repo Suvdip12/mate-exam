@@ -79,25 +79,61 @@ model Verification {
   @@map("verifications")
 }
 
+model Student {
+  id          String    @id @default(cuid())
+  fullName    String
+  rollNumber  String    @unique
+  class       String
+  paper       String
+  dateOfBirth DateTime?
+  phoneNumber String?   @db.VarChar(15)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  // RELATIONS
+  centerId Int
+  center   Center @relation(fields: [centerId], references: [id])
+
+  schoolId Int
+  school   School @relation(fields: [schoolId], references: [id])
+
+  results Result[] // Student has many Results
+
+  @@index([fullName, rollNumber])
+  @@map("students")
+}
+
+model RollCounter {
+  id          Int    @id @default(autoincrement())
+  center_code String
+  class       String
+  year        String
+  counter     Int    @default(0)
+
+  @@unique([center_code, class, year], name: "center_code_class_year")
+}
+
 model Center {
-  id          Int      @id @default(autoincrement())
-  center_name String   @db.VarChar(50)
-  center_code String   @unique @db.VarChar(12)
+  id          Int       @id @default(autoincrement())
+  center_name String    @db.VarChar(50)
+  center_code String    @unique @db.VarChar(12)
   results     Result[]
   schools     School[]
-  createdAt   DateTime @default(now())
+  createdAt   DateTime  @default(now())
+  students    Student[]
 
   @@map("centers")
 }
 
 model School {
-  id          Int      @id @default(autoincrement())
-  school_name String   @db.VarChar(50)
-  school_code String   @unique @db.VarChar(12)
+  id          Int       @id @default(autoincrement())
+  school_name String    @db.VarChar(50)
+  school_code String    @unique @db.VarChar(12)
   results     Result[]
-  center      Center   @relation(fields: [centerId], references: [id])
+  center      Center    @relation(fields: [centerId], references: [id])
   centerId    Int
-  createdAt   DateTime @default(now())
+  createdAt   DateTime  @default(now())
+  students    Student[]
 
   @@map("schools")
 }
@@ -114,10 +150,13 @@ model Result {
   centerId        Int
   school          School   @relation(fields: [schoolId], references: [id])
   schoolId        Int
-  author          User     @relation(fields: [authorId], references: [id])
-  authorId        String
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  studentId       String?
+  student         Student? @relation(fields: [studentId], references: [id])
+
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("results")
 }

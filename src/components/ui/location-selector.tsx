@@ -27,6 +27,8 @@ interface LocationSelectorProps {
   onCenterChange?: (center: CenterProps | null) => void;
   onSchoolChange?: (school: SchoolProps | null) => void;
   isFormResat?: boolean;
+  valueCenter?: { center: string; center_code: string };
+  valueSchool?: { school_name: string; school_code: string };
 }
 
 const LocationSelector = ({
@@ -34,6 +36,8 @@ const LocationSelector = ({
   onCenterChange,
   onSchoolChange,
   isFormResat,
+  valueCenter,
+  valueSchool,
 }: LocationSelectorProps) => {
   const [selectedCenter, setSelectedCenter] = useState<CenterProps | null>(
     null,
@@ -56,6 +60,25 @@ const LocationSelector = ({
     setSelectedCenter(null);
     setSelectedSchool(null);
   }, [isFormResat]);
+  useEffect(() => {
+    if (valueCenter) {
+      const center = centersData.find(
+        (c) => c.code === valueCenter.center_code,
+      );
+      setSelectedCenter(center || null);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [valueCenter]);
+
+  useEffect(() => {
+    if (valueSchool) {
+      const school = schoolData.find(
+        (s) => s.school_code === valueSchool.school_code,
+      );
+      setSelectedSchool(school || null);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [valueSchool]);
 
   // Function to handle Center selection
   const handleCenterSelect = (center: CenterProps | null) => {

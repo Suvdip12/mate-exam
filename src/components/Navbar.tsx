@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import { auth, validateRequest } from "@/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { cn } from "@/lib/utils";
 export default async function Navbar() {
   const { user, session } = await validateRequest();
   return (
@@ -19,25 +20,35 @@ export default async function Navbar() {
           <span className="text-xl font-bold">University of Kalyani</span>
         </Link>
         <div className="mr-7 p-1 md:mr-5 lg:mr-2">
-          {user && session.user.role !== "admin" ? (
-            <form
-              action={async () => {
-                "use server";
-                await auth.api.signOut({
-                  headers: await headers(),
-                });
-                redirect("/login");
-              }}
-            >
-              <Button type="submit">Sign Out</Button>
-            </form>
-          ) : (
-            user &&
-            session.user.role === "admin" && (
-              <Button>
-                <Link href="/admin">Dashboard</Link>
-              </Button>
+          {user ? (
+            session.user.role === "user" ? (
+              <form
+                action={async () => {
+                  "use server";
+                  await auth.api.signOut({
+                    headers: await headers(),
+                  });
+                  redirect("/login");
+                }}
+              >
+                <Button type="submit">Sign Out</Button>
+              </form>
+            ) : (
+              user &&
+              (session.user.role === "admin" ||
+                session.user.role === "super-admin") && (
+                <Button>
+                  <Link href="/admin">Dashboard</Link>
+                </Button>
+              )
             )
+          ) : (
+            <Link
+              className={cn(buttonVariants({ variant: "outline" }))}
+              href="/login"
+            >
+              Admin Login
+            </Link>
           )}
         </div>
       </div>

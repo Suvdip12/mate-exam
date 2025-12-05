@@ -1,3 +1,5 @@
+import { Prisma } from "@prisma/client";
+
 export type TopRankerResult = {
   id: string;
   name: string;
@@ -43,3 +45,10 @@ export interface StudentResult extends Result {
   school: School;
   center: Center;
 }
+
+export type StudentWithSchoolCenter = Prisma.StudentGetPayload<{
+  include: {
+    school: true;
+    center: true;
+  };
+}>;
