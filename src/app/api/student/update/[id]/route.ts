@@ -1,14 +1,14 @@
 import { validateRequest } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { studentSchema } from "@/lib/validations";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function PUT(
-  req: Request,
-  { params }: { params: { id: string } },
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const { id: studentId } = params;
+    const { id: studentId } = await params;
     const body = await req.json();
     const { error, data: student } = studentSchema.safeParse(body);
 

@@ -4,11 +4,11 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: "/:path*", // Matches all routes
+        source: "/:path*",
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=0, must-revalidate", // Forces browser to check for updates
+            value: "public, max-age=0, must-revalidate",
           },
         ],
       },

@@ -18,10 +18,13 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci --include=optional
 
       - name: Prisma validate
         run: npx prisma validate
+
+      - name: Prisma generate
+        run: npx prisma generate
 
       - name: Type check
         run: npm run type-check
@@ -31,3 +34,5 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          SKIP_ENV_VALIDATION: true
