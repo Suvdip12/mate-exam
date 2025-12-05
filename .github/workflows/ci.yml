@@ -22,9 +22,13 @@ jobs:
 
       - name: Prisma validate
         run: npx prisma validate
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
       - name: Prisma generate
         run: npx prisma generate
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
       - name: Type check
         run: npm run type-check
@@ -35,4 +39,4 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          SKIP_ENV_VALIDATION: true
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
