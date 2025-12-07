@@ -92,7 +92,7 @@ export default async function Home() {
                 </strong>
                 <p className="text-sm">
                   The exam for MAT-2026 will be held on{" "}
-                  <span className="font-semibold">12 January</span>. Click the
+                  <span className="font-semibold">11 January</span>. Click the
                   link below for more details.
                   <Link className="ml-2 underline" href="#faqs">
                     Click here
