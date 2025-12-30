@@ -1,5 +1,5 @@
 "use client";
-import RankCard from "@/components/rankCard";
+import RankCard from "@/components/RankCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { getStudentResult } from "@/lib/actions/result.action";
