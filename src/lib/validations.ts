@@ -110,3 +110,9 @@ export const studentSearchSchema = z.object({
 });
 
 export type StudentSearchValues = z.infer<typeof studentSearchSchema>;
+
+export const rollNumberSchema = z.object({
+  rollNumber: z.string().min(5, "Roll nimber must me at last 5 characters"),
+});
+
+export type RollNumber = z.infer<typeof rollNumberSchema>;

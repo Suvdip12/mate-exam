@@ -117,6 +117,7 @@ model Center {
   id          Int       @id @default(autoincrement())
   center_name String    @db.VarChar(50)
   center_code String    @unique @db.VarChar(12)
+  address     String?
   results     Result[]
   schools     School[]
   createdAt   DateTime  @default(now())
@@ -129,6 +130,7 @@ model School {
   id          Int       @id @default(autoincrement())
   school_name String    @db.VarChar(50)
   school_code String    @unique @db.VarChar(12)
+  address     String?
   results     Result[]
   center      Center    @relation(fields: [centerId], references: [id])
   centerId    Int
