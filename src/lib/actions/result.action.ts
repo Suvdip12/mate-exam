@@ -46,6 +46,7 @@ export async function createResult(
         create: {
           center_code: data.center.center_code,
           center_name: data.center.center,
+          address: data.center.center_address,
         },
       });
 

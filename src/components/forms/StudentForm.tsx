@@ -57,6 +57,7 @@ export default function StudentForm({
     center: {
       center: student?.center.center_name ?? "",
       center_code: student?.center.center_code ?? "",
+      center_address: student?.center.address ?? "",
     },
     school: {
       school_name: student?.school.school_name ?? "",
@@ -182,10 +183,10 @@ export default function StudentForm({
                   valueSchool={form.watch("school")}
                   isFormResat={isFormResat}
                   onCenterChange={(center) => {
-                    // setCenterName(center?.name || "");
                     form.setValue(field.name, {
                       center: center?.name || "",
                       center_code: center?.code || "",
+                      center_address: center?.address || "",
                     });
                   }}
                   onSchoolChange={(school) => {

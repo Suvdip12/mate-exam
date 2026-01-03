@@ -38,6 +38,7 @@ export async function POST(req: Request) {
       create: {
         center_code: student.center.center_code,
         center_name: student.center.center,
+        address: student.center.center_address,
       },
     });
 

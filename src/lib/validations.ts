@@ -35,6 +35,7 @@ export const centerSchema = z.object({
       /^[A-Za-z0-9-]+$/,
       "Center code must contain only letters and numbers.",
     ),
+  center_address: z.string().optional(),
 });
 export const schoolSchema = z.object({
   school_name: z
@@ -116,3 +117,11 @@ export const rollNumberSchema = z.object({
 });
 
 export type RollNumber = z.infer<typeof rollNumberSchema>;
+
+export const admitSearchSchema = z.object({
+  rollNumber: z
+    .string()
+    .regex(/^[A-Z0-9]{2,4}(\/[A-Z0-9]{2,4}){3}$/, "Roll number is not valid"),
+});
+
+export type AdmitSearchValues = z.infer<typeof admitSearchSchema>;

@@ -14,6 +14,7 @@ export interface CenterProps {
   name: string;
   code: string;
   emoji: string;
+  address?: string;
 }
 export interface SchoolProps {
   id: number;
@@ -23,3 +24,18 @@ export interface SchoolProps {
   center_name: string;
   school_code: string;
 }
+
+export type AdmitCardData = {
+  id: string;
+  rollNo: string;
+  appNo: string;
+  name: string;
+  gender: string;
+  fatherName: string;
+  address: string;
+  examDate: string;
+  examTime: string;
+  venue: string;
+  reportingTime: string;
+  lastEntryTime: string;
+};

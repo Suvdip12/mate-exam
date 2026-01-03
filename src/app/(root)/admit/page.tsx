@@ -1,4 +1,5 @@
 import { SearchRollNumber } from "@/components/SearchRollNumber";
+import { Loader2 } from "lucide-react";
 import { Suspense } from "react";
 
 export default function Page() {
@@ -13,7 +14,9 @@ export default function Page() {
             Government of Education & Examination Services
           </p>
         </div>
-        <Suspense fallback={null}>
+        <Suspense
+          fallback={<Loader2 className="mx-auto size-4 animate-spin" />}
+        >
           <SearchRollNumber />
         </Suspense>
       </div>

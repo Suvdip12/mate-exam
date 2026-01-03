@@ -1,11 +1,19 @@
 import { prisma } from "@/lib/prisma";
-import { rollNumberSchema } from "@/lib/validations";
-import { NextResponse } from "next/server";
+import { admitSearchSchema } from "@/lib/validations";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req: Request) {
+export async function GET(
+  req: NextRequest,
+  { params }: { params: Promise<{ roll: string[] }> },
+) {
   try {
-    const body = await req.json();
-    const { error, data } = rollNumberSchema.safeParse(body);
+    const { roll } = await params;
+    // Join the array segments back into a roll number string (e.g., ["KU", "VII", "26", "001"] -> "KU/VII/26/001")
+    const rollNumber = roll.join("/");
+
+    const { error, data } = admitSearchSchema.safeParse({
+      rollNumber,
+    });
 
     if (error) {
       return NextResponse.json(
@@ -17,7 +25,7 @@ export async function POST(req: Request) {
         { status: 400 },
       );
     }
-    const students = await prisma.student.findMany({
+    const students = await prisma.student.findUnique({
       where: {
         rollNumber: data.rollNumber,
       },
@@ -25,7 +33,6 @@ export async function POST(req: Request) {
         school: true,
         center: true,
       },
-      take: 10,
     });
     if (!students) {
       return NextResponse.json(

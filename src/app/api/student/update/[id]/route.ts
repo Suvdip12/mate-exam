@@ -55,6 +55,7 @@ export async function PUT(
       create: {
         center_code: student.center.center_code,
         center_name: student.center.center,
+        address: student.center.center_address,
       },
     });
 

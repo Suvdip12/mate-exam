@@ -40,6 +40,7 @@ export default function ResultForm() {
       center: {
         center: "",
         center_code: "",
+        center_address: "",
       },
       school: {
         school_name: "",
@@ -92,10 +93,10 @@ export default function ResultForm() {
                 <LocationSelector
                   isFormResat={isFormResat}
                   onCenterChange={(center) => {
-                    // setCenterName(center?.name || "");
                     form.setValue(field.name, {
                       center: center?.name || "",
                       center_code: center?.code || "",
+                      center_address: center?.address || "",
                     });
                   }}
                   onSchoolChange={(school) => {
