@@ -11,7 +11,7 @@ export default function Page() {
             Examination Portal
           </h1>
           <p className="text-sm font-medium text-muted-foreground">
-            Government of Education & Examination Services
+            Download Admit Card for the 24th Mathematics Aptitude Test-2026
           </p>
         </div>
         <Suspense

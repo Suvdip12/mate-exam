@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import ContactPage from "@/components/ContactUs";
 import { NotepadTextIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 
 export default async function Home() {
   return (
@@ -23,6 +25,15 @@ export default async function Home() {
               className="rounded-xl bg-sky-500 p-3 text-center font-semibold text-white hover:bg-sky-600 active:bg-sky-700 dark:bg-sky-400 dark:text-sky-950 dark:hover:bg-sky-300 dark:active:bg-sky-500"
             >
               Explore Past Questions
+            </Link>
+            <Link
+              href="/admit"
+              className={cn(
+                "rounded-xl p-3 text-center font-semibold",
+                buttonVariants({ variant: "outline" }),
+              )}
+            >
+              Download Admit Card
             </Link>
             {/* <Link href="/result">
               <AnimatedButton>
