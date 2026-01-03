@@ -1,5 +1,5 @@
 "use client";
-import RankCard from "../../../components/RankCard";
+import ResultCard from "@/components/ResultCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { getStudentResult } from "@/lib/actions/result.action";
@@ -84,7 +84,7 @@ export default function Result() {
             </li>
           </ul>
         ) : (
-          <RankCard result={searchResults} />
+          <ResultCard result={searchResults} />
         )}
       </div>
     </div>

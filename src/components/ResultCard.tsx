@@ -7,7 +7,7 @@ import signature from "@/assets/signature.png";
 import { useReactToPrint } from "react-to-print";
 import { PrinterIcon } from "lucide-react";
 
-export default function RankCard({ result }: { result: StudentResult }) {
+export default function ResultCard({ result }: { result: StudentResult }) {
   const printRef = React.useRef<HTMLDivElement>(null);
   const handlePrint = useReactToPrint({
     contentRef: printRef,
