@@ -121,7 +121,10 @@ export type RollNumber = z.infer<typeof rollNumberSchema>;
 export const admitSearchSchema = z.object({
   rollNumber: z
     .string()
-    .regex(/^[A-Z0-9]{2,4}(\/[A-Z0-9]{2,4}){3}$/, "Roll number is not valid"),
+    .regex(
+      /^[A-Z0-9]{1,4}(\/[A-Z0-9]{1,4}){3}$/,
+      "Please enter a valid roll number in the format: KU/V/26/001",
+    ),
 });
 
 export type AdmitSearchValues = z.infer<typeof admitSearchSchema>;
