@@ -11,12 +11,14 @@ export async function sendEmail({
   name,
   message,
   magicLink,
+  type,
 }: {
   to: string;
   subject: string;
   name: string;
   message?: string;
   magicLink: string;
+  type?: "login" | "reset";
 }) {
   try {
     const data = await resend.emails.send({
@@ -27,6 +29,7 @@ export async function sendEmail({
       react: MagicLinkEmail({
         magicLink,
         name,
+        type,
       }),
     });
     console.log("Email sent", data);

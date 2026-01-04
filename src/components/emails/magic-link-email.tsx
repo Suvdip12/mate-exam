@@ -15,6 +15,7 @@ import {
 interface RaycastMagicLinkEmailProps {
   magicLink?: string;
   name?: string;
+  type?: "login" | "reset";
 }
 
 const baseUrl = process.env.BETTER_AUTH_URL;
@@ -22,40 +23,78 @@ const baseUrl = process.env.BETTER_AUTH_URL;
 export const MagicLinkEmail = ({
   magicLink,
   name,
-}: RaycastMagicLinkEmailProps) => (
-  <Html>
-    <Head />
-    <Preview>Log in with this magic link.</Preview>
-    <Body style={main}>
-      <Container style={container}>
-        <Img
-          src={`${baseUrl}/kalyani-university-kalyani-logo.png`}
-          width={48}
-          height={48}
-          alt="KU"
-        />
-        <Heading style={heading}>🪄 Hi {name} Your magic link is hare</Heading>
-        <Section style={body}>
-          <Text style={paragraph}>
+  type = "login",
+}: RaycastMagicLinkEmailProps) => {
+  const isReset = type === "reset";
+
+  return (
+    <Html>
+      <Head />
+      <Preview>
+        {isReset
+          ? "Reset your MAT account password"
+          : "Sign in to your MAT account"}
+      </Preview>
+
+      <Body style={main}>
+        <Container style={container}>
+          <Img
+            src={`${baseUrl}/kalyani-university-kalyani-logo.png`}
+            width={48}
+            height={48}
+            alt="University of Kalyani"
+          />
+
+          <Heading style={heading}>
+            {isReset ? "Reset your password" : "🪄 Your magic sign-in link"}
+          </Heading>
+
+          <Section style={body}>
+            <Text style={paragraph}>Hi {name ?? "there"},</Text>
+
+            <Text style={paragraph}>
+              {isReset
+                ? "We received a request to reset your MAT account password. Click the link below to set a new password."
+                : "Click the link below to securely sign in to your MAT account."}
+            </Text>
+
+            <Text style={paragraph}>
+              <Link style={link} href={magicLink}>
+                👉 {isReset ? "Reset Password" : "Sign in"} 👈
+              </Link>
+            </Text>
+
+            <Text style={paragraph}>
+              This link is valid for a limited time and can be used only once.
+              If it doesn’t open, please copy and paste the link into your
+              browser.
+            </Text>
             <Link style={link} href={magicLink}>
-              👉 Click here to sign in 👈
+              {magicLink}
             </Link>
-          </Text>
+            <Text style={paragraph}>
+              This link is valid for a limited time and can be used only once.
+            </Text>
+
+            <Text style={paragraph}>
+              If you didn&apos;t request this, please ignore this email.
+            </Text>
+          </Section>
+
           <Text style={paragraph}>
-            If you didn&apos;t request this, please ignore this email.
+            Best regards,
+            <br />— <strong>MAT Team</strong>
           </Text>
-        </Section>
-        <Text style={paragraph}>
-          Best,
-          <br />- MAT Team
-        </Text>
-        <Hr style={hr} />
-        <Text style={footer}>MAT PG Hall_1.</Text>
-        <Text style={footer}>2026 University of Kalyani Kalyani, Nadia</Text>
-      </Container>
-    </Body>
-  </Html>
-);
+
+          <Hr style={hr} />
+
+          <Text style={footer}>MAT PG Hall-1</Text>
+          <Text style={footer}>2026 University of Kalyani, Kalyani, Nadia</Text>
+        </Container>
+      </Body>
+    </Html>
+  );
+};
 
 export default MagicLinkEmail;
 

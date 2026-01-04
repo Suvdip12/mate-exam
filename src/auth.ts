@@ -21,6 +21,17 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: true,
+    sendResetPassword: async ({ user, url, token }) => {
+      const resetPasswordUrl = `${process.env.BETTER_AUTH_URL}/reset-password?token=${token}`;
+      await sendEmail({
+        to: user.email,
+        subject: "Reset your password",
+        magicLink: resetPasswordUrl,
+        name: user.name,
+        message: `Click the link to reset your password: ${url}`,
+        type: "reset",
+      });
+    },
   },
   emailVerification: {
     sendOnSignUp: true,
@@ -32,6 +43,7 @@ export const auth = betterAuth({
         subject: "Verify your email address",
         magicLink: verificationUrl,
         name: user.name,
+        type: "login",
       });
     },
   },
