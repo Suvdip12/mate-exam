@@ -8,7 +8,7 @@ export async function GET(
 ) {
   try {
     const { roll } = await params;
-    // Join the array segments back into a roll number string (e.g., ["KU", "VII", "26", "001"] -> "KU/VII/26/001")
+    // Join the array segments back into a roll number string (e.g., ["KU", "26", "VII", "001"] -> "KU/26/VII/001")
     const rollNumber = roll.join("/");
 
     const { error, data } = admitSearchSchema.safeParse({

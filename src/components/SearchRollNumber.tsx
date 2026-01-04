@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { FileText } from "lucide-react";
+import { FileText, Search } from "lucide-react";
 import { useReactToPrint } from "react-to-print";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -138,7 +138,10 @@ export function SearchRollNumber() {
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="flex gap-2">
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="flex flex-col gap-2 md:flex-row"
+            >
               <FormField
                 control={form.control}
                 name="rollNumber"
@@ -146,8 +149,8 @@ export function SearchRollNumber() {
                   <FormItem className="flex-1">
                     <FormControl>
                       <Input
-                        placeholder="Enter Roll Number (e.g. 295807866)"
-                        className="h-11 rounded-none border-2 focus-visible:border-primary focus-visible:ring-0"
+                        placeholder="Enter Roll Number (e.g. KU/26/VII/001)"
+                        className="h-11 text-balance rounded border-2 focus-visible:border-primary focus-visible:ring-0"
                         {...field}
                       />
                     </FormControl>
@@ -158,8 +161,9 @@ export function SearchRollNumber() {
               <LoadingButton
                 type="submit"
                 loading={isLoading}
-                className="h-11 rounded-none bg-primary px-8 font-bold uppercase hover:bg-primary/90"
+                className="h-11 rounded bg-primary px-8 hover:bg-primary/90"
               >
+                <Search className="size-4" />
                 Search
               </LoadingButton>
             </form>

@@ -27,6 +27,6 @@ export async function generateUniqueRollNumber(
     const padded = String(updated.counter).padStart(3, "0");
 
     // 3. Build roll number
-    return `${centerCode}/${className}/${year}/${padded}`;
+    return `${centerCode}/${year}/${className}/${padded}`;
   });
 }
