@@ -56,7 +56,7 @@ function transformStudentToAdmitCard(
     address: student.center.address || "",
     school: student.school.school_name,
     examDate: "11/01/2026",
-    examTime: "12:00 PM",
+    examTime: "12:00 PM - 01:00 PM",
     venue,
     reportingTime: "11:00 AM",
     lastEntryTime: "11:45 AM",

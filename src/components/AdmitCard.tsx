@@ -118,9 +118,10 @@ export const AdmitCard = React.forwardRef<HTMLDivElement, AdmitCardProps>(
           </div>
 
           <div className="flex w-[120px] flex-col items-center justify-start pt-2">
-            <div className="border border-black bg-white p-1">
+            <div className="bg-white p-1">
+              {/* //BASE URL */}
               <QRCodeSVG
-                value={`${process.env.BETTER_AUTH_URL}/result?roll=${data.rollNo.replace(/-/g, "/")}`}
+                value={`https://www.matpg1.in/result?roll=${data.rollNo.replace(/\//g, "-")}`}
                 size={100}
               />
             </div>
