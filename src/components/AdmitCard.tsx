@@ -120,7 +120,7 @@ export const AdmitCard = React.forwardRef<HTMLDivElement, AdmitCardProps>(
           <div className="flex w-[120px] flex-col items-center justify-start pt-2">
             <div className="border border-black bg-white p-1">
               <QRCodeSVG
-                value={`${process.env.BETTER_AUTH_URL}/result?roll=${data.rollNo}`}
+                value={`${process.env.BETTER_AUTH_URL}/result?roll=${data.rollNo.replace(/-/g, "/")}`}
                 size={100}
               />
             </div>
