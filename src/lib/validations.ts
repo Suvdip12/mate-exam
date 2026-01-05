@@ -123,7 +123,7 @@ export const admitSearchSchema = z.object({
     .string()
     .regex(
       /^[A-Z0-9]{1,4}(\/[A-Z0-9]{1,4}){3}$/,
-      "Please enter a valid roll number in the format: KU/V/26/001",
+      "Roll number must contain exactly 3 '/' and follow the format like KU/26/V/001",
     ),
 });
 
