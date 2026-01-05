@@ -2,22 +2,10 @@
 "use client";
 import * as React from "react";
 import { QRCodeSVG } from "qrcode.react";
+import { AdmitCardData } from "@/types/types";
 
 interface AdmitCardProps {
-  data: {
-    id: string;
-    rollNo: string;
-    appNo: string;
-    name: string;
-    gender: string;
-    fatherName: string;
-    address: string;
-    examDate: string;
-    examTime: string;
-    venue: string;
-    reportingTime: string;
-    lastEntryTime: string;
-  };
+  data: AdmitCardData;
 }
 
 const examRules = [
@@ -124,8 +112,8 @@ export const AdmitCard = React.forwardRef<HTMLDivElement, AdmitCardProps>(
             </div>
 
             <div className="grid grid-cols-[180px_1fr] items-start">
-              <span className="font-bold">Address</span>
-              <span className="text-xs leading-tight">: {data.address}</span>
+              <span className="font-bold">School</span>
+              <span className="text-xs leading-tight">: {data.school}</span>
             </div>
           </div>
 
@@ -166,10 +154,7 @@ export const AdmitCard = React.forwardRef<HTMLDivElement, AdmitCardProps>(
             </p>
             <div className="pt-2">
               <p className="font-bold underline">Venue:</p>
-              <p className="text-xs uppercase leading-tight">
-                UNIVERSITY OF KALYANI (PG-1 UNIT), BLOCK C, KALYANI, DISTRICT
-                NADIA, WEST BENGAL – 741235
-              </p>
+              <p className="text-xs uppercase leading-tight">{data.venue}</p>
             </div>
           </div>
 

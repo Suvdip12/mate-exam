@@ -53,6 +53,7 @@ function transformStudentToAdmitCard(
     gender: "",
     fatherName: "",
     address: student.center.address || "",
+    school: student.school.school_name,
     examDate: "11/01/2026",
     examTime: "12:00 PM",
     venue,

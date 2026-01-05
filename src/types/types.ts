@@ -36,6 +36,7 @@ export type AdmitCardData = {
   examDate: string;
   examTime: string;
   venue: string;
+  school: string;
   reportingTime: string;
   lastEntryTime: string;
 };
