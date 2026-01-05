@@ -41,6 +41,7 @@ import LoadingButton from "./LoadingButton";
 function transformStudentToAdmitCard(
   student: StudentWithSchoolCenter,
 ): AdmitCardData {
+  console.log("student", student);
   const venue = student.center.address
     ? `${student.center.center_name}, ${student.center.address}`
     : student.center.center_name;
@@ -118,7 +119,7 @@ export function SearchRollNumber() {
   }
 
   const admitCardData = student ? transformStudentToAdmitCard(student) : null;
-
+  console.log("selectedStudent", admitCardData);
   return (
     <div className="space-y-6">
       <div className="hidden">

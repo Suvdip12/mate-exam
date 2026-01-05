@@ -3,7 +3,7 @@ import { SchoolProps } from "@/types/types";
 export const schools: SchoolProps[] = [
   {
     id: 1,
-    name: "MAJHERCHAR SATYAPRIYA",
+    name: "MAJHERCHAR SATYAPRIYA ROY SMRITI VIDYAPITH",
     center_id: 1,
     center_code: "KU",
     center_name: "KALYANI",
@@ -11,7 +11,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 2,
-    name: "CHARSARATI KENDRIYA VIDYALAY",
+    name: "CHARSARATI KENDRIYA HIGH SCHOOL",
     center_id: 1,
     center_code: "KU",
     center_name: "KALYANI",
@@ -19,7 +19,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 3,
-    name: "SARASWATI TRUST",
+    name: "GHOSHPARA SARASWATI TRUST ESTATE HIGH SCHOOL",
     center_id: 1,
     center_code: "KU",
     center_name: "KALYANI",
@@ -27,7 +27,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 4,
-    name: "BIDHAN CHANDRA MEMORIAL GIRLS HIGH SCHOOL",
+    name: "BIDHANCHANDRA MEMORIAL GIRLS HIGH SCHOOL",
     center_id: 1,
     center_code: "KU",
     center_name: "KALYANI",
@@ -35,7 +35,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 5,
-    name: "CENTRAL MODEL SCHOOL",
+    name: "KALYANI CENTRAL MODEL SCHOOL",
     center_id: 1,
     center_code: "KU",
     center_name: "KALYANI",
@@ -59,7 +59,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 8,
-    name: "KALYANI SIKSYATAN",
+    name: "KALYANI SHIKSHAYATAN (HS)",
     center_id: 1,
     center_code: "KU",
     center_name: "KALYANI",
@@ -67,7 +67,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 9,
-    name: "JAWAHAR NAVODAY VIDYALAY",
+    name: "JAWAHAR NAVODAYA VIDYALAYA",
     center_id: 1,
     center_code: "KU",
     center_name: "KALYANI",
@@ -83,7 +83,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 11,
-    name: "KU EXPERIMENTAL",
+    name: "KALYANI UNIVERSITY EXPERIMENTAL HIGH SCHOOL",
     center_id: 1,
     center_code: "KU",
     center_name: "KALYANI",
@@ -275,7 +275,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 35,
-    name: "CHANDAMARI NAGENDRA BALA HIGH SCHOOL",
+    name: "CHANDAMARI NAGENDRA BALIKA VIDYALAYA",
     center_id: 1,
     center_code: "KU",
     center_name: "KALYANI",
@@ -283,7 +283,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 36,
-    name: "CHANDAMARI HIGH SCHOOL",
+    name: "CHANDAMARI DESHAPRIYA SHIKSHAYATAN",
     center_id: 1,
     center_code: "KU",
     center_name: "KALYANI",
@@ -291,7 +291,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 37,
-    name: "NETAJI VIDYAMANDIR",
+    name: "GAYESHPUR NETAJI VIDYAMANDIR",
     center_id: 1,
     center_code: "KU",
     center_name: "KALYANI",
@@ -299,7 +299,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 38,
-    name: "NETAJI GIRLS",
+    name: "GAYESHPUR NETAJI GIRLS HIGH SCHOOL",
     center_id: 1,
     center_code: "KU",
     center_name: "KALYANI",
@@ -307,7 +307,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 39,
-    name: "RABI TIRTHA",
+    name: "BEDIBHAWAN RABITIRTHA VIDYALAYA",
     center_id: 1,
     center_code: "KU",
     center_name: "KALYANI",
@@ -315,7 +315,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 40,
-    name: "NETAJI SUBHAS BIDYALAY",
+    name: "NETAJI SUBHASH VIDYALAYA",
     center_id: 1,
     center_code: "KU",
     center_name: "KALYANI",
