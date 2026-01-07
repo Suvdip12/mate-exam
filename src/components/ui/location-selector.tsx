@@ -20,8 +20,6 @@ import { CenterProps, SchoolProps } from "@/types/types";
 import { centers } from "@/data/center-data";
 import { schools } from "@/data/school-data";
 
-// Import JSON data directly
-
 interface LocationSelectorProps {
   disabled?: boolean;
   onCenterChange?: (center: CenterProps | null) => void;
@@ -29,6 +27,7 @@ interface LocationSelectorProps {
   isFormResat?: boolean;
   valueCenter?: { center: string; center_code: string };
   valueSchool?: { school_name: string; school_code: string };
+  showAllSchools?: boolean; // New prop to show all schools
 }
 
 const LocationSelector = ({
@@ -38,6 +37,7 @@ const LocationSelector = ({
   isFormResat,
   valueCenter,
   valueSchool,
+  showAllSchools = false, // Default to false for backward compatibility
 }: LocationSelectorProps) => {
   const [selectedCenter, setSelectedCenter] = useState<CenterProps | null>(
     null,
@@ -48,18 +48,19 @@ const LocationSelector = ({
   const [openCenterDropdown, setOpenCenterDropdown] = useState(false);
   const [openSchoolDropdown, setOpenSchoolDropdown] = useState(false);
 
-  // Cast imported JSON data to their respective types
   const centersData = centers as CenterProps[];
   const schoolData = schools as SchoolProps[];
 
-  // Filter states for selected Center
-  const availableSchools = schoolData.filter(
-    (school) => school.center_id === selectedCenter?.id,
-  );
+  // Filter schools based on showAllSchools prop
+  const availableSchools = showAllSchools
+    ? schoolData // Show all schools if prop is true
+    : schoolData.filter((school) => school.center_id === selectedCenter?.id);
+
   useEffect(() => {
     setSelectedCenter(null);
     setSelectedSchool(null);
   }, [isFormResat]);
+
   useEffect(() => {
     if (valueCenter) {
       const center = centersData.find(
@@ -80,12 +81,14 @@ const LocationSelector = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [valueSchool]);
 
-  // Function to handle Center selection
   const handleCenterSelect = (center: CenterProps | null) => {
     setSelectedCenter(center);
-    setSelectedSchool(null); // Reset School when Center changes
+    // Only reset school if not showing all schools
+    if (!showAllSchools) {
+      setSelectedSchool(null);
+      onSchoolChange?.(null);
+    }
     onCenterChange?.(center);
-    onSchoolChange?.(null);
   };
 
   const handleSchoolSelect = (school: SchoolProps | null) => {
@@ -162,15 +165,15 @@ const LocationSelector = ({
         </PopoverContent>
       </Popover>
 
-      {/* School Selector - Only shown if selected Center has Schools */}
-      {availableSchools.length > 0 && (
+      {/* School Selector - Shown based on showAllSchools prop or if center has schools */}
+      {(showAllSchools || availableSchools.length > 0) && (
         <Popover open={openSchoolDropdown} onOpenChange={setOpenSchoolDropdown}>
           <PopoverTrigger asChild>
             <Button
               variant="outline"
               role="combobox"
               aria-expanded={openSchoolDropdown}
-              disabled={!selectedCenter}
+              disabled={showAllSchools ? false : !selectedCenter}
               className="w-full justify-between"
             >
               {selectedSchool ? (

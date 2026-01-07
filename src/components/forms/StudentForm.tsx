@@ -23,7 +23,7 @@ import {
 import { Button } from "@/components/ui/button";
 import LocationSelector from "../ui/location-selector";
 import { StudentFormValues, studentSchema } from "@/lib/validations";
-import { ChevronDownIcon } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import axios, { AxiosError } from "axios";
@@ -33,6 +33,7 @@ import { ApiResponse } from "@/types/api-response.types";
 import { Student } from "@prisma/client";
 import LoadingButton from "../LoadingButton";
 import { StudentWithSchoolCenter } from "@/types/prisma.types";
+import { Checkbox } from "@/components/ui/checkbox";
 
 interface StudentFormProps {
   onSuccess?: (data: Student) => void;
@@ -50,6 +51,8 @@ export default function StudentForm({
   const isFormResat = false;
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [calendarDropdownOpen, setCalendarDropdownOpen] = useState(false);
+  const [showAllSchools, setShowAllSchools] = useState(false);
+
   const name = student?.fullName?.split(" ") ?? ["", ""];
   const initialValues = {
     firstName: name[0] ?? "",
@@ -73,7 +76,7 @@ export default function StudentForm({
     resolver: zodResolver(studentSchema),
     defaultValues: initialValues,
   });
-  // console.log(setIsFormResat);
+
   async function onSubmit(values: StudentFormValues) {
     setIsSubmitting(true);
     try {
@@ -91,7 +94,6 @@ export default function StudentForm({
               lastName: "",
               dateOfBirth: undefined,
               phoneNumber: "",
-              // 🔥 Keep previous center & school values as-is
               center: form.getValues("center"),
               school: form.getValues("school"),
               class: form.getValues("class"),
@@ -132,7 +134,7 @@ export default function StudentForm({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <div className="space-y-4">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <FormField
             control={form.control}
@@ -176,12 +178,30 @@ export default function StudentForm({
           name="center"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Select Center</FormLabel>
+              <div className="flex items-center justify-between">
+                <FormLabel>Select Center</FormLabel>
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    id="showAllSchools"
+                    checked={showAllSchools}
+                    onCheckedChange={(checked) =>
+                      setShowAllSchools(checked === true)
+                    }
+                  />
+                  <label
+                    htmlFor="showAllSchools"
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    Show All Schools
+                  </label>
+                </div>
+              </div>
               <FormControl>
                 <LocationSelector
                   valueCenter={form.watch("center")}
                   valueSchool={form.watch("school")}
                   isFormResat={isFormResat}
+                  showAllSchools={showAllSchools}
                   onCenterChange={(center) => {
                     form.setValue(field.name, {
                       center: center?.name || "",
@@ -190,7 +210,6 @@ export default function StudentForm({
                     });
                   }}
                   onSchoolChange={(school) => {
-                    // setSchoolName(school?.name || "");
                     form.setValue("school", {
                       school_name: school?.name || "",
                       school_code: school?.school_code || "",
@@ -200,8 +219,9 @@ export default function StudentForm({
                 />
               </FormControl>
               <FormDescription>
-                If your center has school, it will be appear after selecting
-                center
+                {showAllSchools
+                  ? "All schools are shown. Select any school regardless of center."
+                  : "If your center has school, it will appear after selecting center"}
               </FormDescription>
               {(form.formState.errors.center?.center ||
                 form.formState.errors.center?.center_code ||
@@ -248,11 +268,11 @@ export default function StudentForm({
             name="paper"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>paper</FormLabel>
+                <FormLabel>Paper</FormLabel>
                 <Select onValueChange={field.onChange} value={field.value}>
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="paper prefarence.." />
+                      <SelectValue placeholder="paper preference.." />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -294,7 +314,7 @@ export default function StudentForm({
                           ? new Date(field.value).toLocaleDateString("en-GB")
                           : "Select date"}
 
-                        <ChevronDownIcon className="h-4 w-4 opacity-70" />
+                        <ChevronDown className="h-4 w-4 opacity-70" />
                       </Button>
                     </PopoverTrigger>
 
@@ -324,7 +344,6 @@ export default function StudentForm({
           />
         </div>
 
-        {/* Phone Number - Optional */}
         <FormField
           control={form.control}
           name="phoneNumber"
@@ -348,11 +367,15 @@ export default function StudentForm({
           )}
         />
 
-        {/* Submit Button */}
-        <LoadingButton loading={isSubmitting} type="submit" className="w-full">
+        <LoadingButton
+          loading={isSubmitting}
+          type="submit"
+          className="w-full"
+          onClick={form.handleSubmit(onSubmit)}
+        >
           {mode === "create" ? "Register" : "Update"}
         </LoadingButton>
-      </form>
+      </div>
     </Form>
   );
 }

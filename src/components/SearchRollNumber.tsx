@@ -76,6 +76,18 @@ export function SearchRollNumber() {
   const handlePrint = useReactToPrint({
     contentRef: componentRef,
     documentTitle: `admit-card-${selectedStudent?.rollNo || "Document"}`,
+    // print: async (printIframe: HTMLIFrameElement) => {
+    //   const document = printIframe.contentDocument;
+    //   if (document) {
+    //     const html = document.getElementsByTagName("html")[0];
+    //     console.log(html);
+    //    try {
+    //      await html2pdf().from(html).save();
+    //    } catch (error) {
+    //     console.log(error)
+    //    }
+    //   }
+    // },
   });
 
   const form = useForm<AdmitSearchValues>({
@@ -87,6 +99,7 @@ export function SearchRollNumber() {
 
   const onPrintClick = (data: AdmitCardData) => {
     setSelectedStudent(data);
+    // handlePrint();
     setTimeout(() => {
       handlePrint();
     }, 100);
@@ -122,7 +135,7 @@ export function SearchRollNumber() {
   console.log("selectedStudent", admitCardData);
   return (
     <div className="space-y-6">
-      <div className="hidden">
+      <div className="">
         {selectedStudent && (
           <AdmitCard ref={componentRef} data={selectedStudent} />
         )}
