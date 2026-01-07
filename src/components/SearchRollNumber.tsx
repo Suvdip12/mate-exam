@@ -135,7 +135,7 @@ export function SearchRollNumber() {
   console.log("selectedStudent", admitCardData);
   return (
     <div className="space-y-6">
-      <div className="">
+      <div className="hidden">
         {selectedStudent && (
           <AdmitCard ref={componentRef} data={selectedStudent} />
         )}
