@@ -1,6 +1,7 @@
 import { SchoolProps } from "@/types/types";
 
 export const schools: SchoolProps[] = [
+  // CENTER 1 : KALYANI
   {
     id: 1,
     name: "MAJHERCHAR SATYAPRIYA ROY SMRITI VIDYAPITH",
@@ -98,6 +99,96 @@ export const schools: SchoolProps[] = [
     school_code: "KAL-012",
   },
   {
+    id: 35,
+    name: "CHANDAMARI NAGENDRA BALIKA VIDYALAYA",
+    center_id: 1,
+    center_code: "KU",
+    center_name: "KALYANI",
+    school_code: "KAL-013",
+  },
+  {
+    id: 36,
+    name: "CHANDAMARI DESHAPRIYA SHIKSHAYATAN",
+    center_id: 1,
+    center_code: "KU",
+    center_name: "KALYANI",
+    school_code: "KAL-014",
+  },
+  {
+    id: 37,
+    name: "GAYESHPUR NETAJI VIDYAMANDIR",
+    center_id: 1,
+    center_code: "KU",
+    center_name: "KALYANI",
+    school_code: "KAL-015",
+  },
+  {
+    id: 38,
+    name: "GAYESHPUR NETAJI GIRLS HIGH SCHOOL",
+    center_id: 1,
+    center_code: "KU",
+    center_name: "KALYANI",
+    school_code: "KAL-016",
+  },
+  {
+    id: 39,
+    name: "BEDIBHAWAN RABITIRTHA VIDYALAYA",
+    center_id: 1,
+    center_code: "KU",
+    center_name: "KALYANI",
+    school_code: "KAL-017",
+  },
+  {
+    id: 40,
+    name: "NETAJI SUBHASH VIDYALAYA",
+    center_id: 1,
+    center_code: "KU",
+    center_name: "KALYANI",
+    school_code: "KAL-018",
+  },
+  {
+    id: 78,
+    name: "MADANPUR K.A. VIDYALAYA FOR GIRLS",
+    center_id: 1,
+    center_code: "KU",
+    center_name: "KALYANI",
+    school_code: "KAL-019",
+  },
+  {
+    id: 79,
+    name: "MANORAMA SIKSHANIKETAN",
+    center_id: 1,
+    center_code: "KU",
+    center_name: "KALYANI",
+    school_code: "KAL-020",
+  },
+  {
+    id: 80,
+    name: "ORIENTAL PUBLIC SCHOOL",
+    center_id: 1,
+    center_code: "KU",
+    center_name: "KALYANI",
+    school_code: "KAL-021",
+  },
+  {
+    id: 81,
+    name: "RAJLAKSHMI KANYA VIDYAPITH",
+    center_id: 1,
+    center_code: "KU",
+    center_name: "KALYANI",
+    school_code: "KAL-022",
+  },
+  {
+    id: 82,
+    name: "SARADA KANYA VIDYAPITH",
+    center_id: 1,
+    center_code: "KU",
+    center_name: "KALYANI",
+    school_code: "KAL-023",
+  },
+
+  // CENTER 2 : KANCHRAPARA
+  {
     id: 13,
     name: "JONEPUR HIGH SCHOOL (GIRLS)",
     center_id: 2,
@@ -177,6 +268,8 @@ export const schools: SchoolProps[] = [
     center_name: "KANCHRAPARA",
     school_code: "KAN-010",
   },
+
+  // CENTER 3 : NAIHATI
   {
     id: 23,
     name: "NAIHATI ADARSHA VIDYANIKETAN",
@@ -233,6 +326,8 @@ export const schools: SchoolProps[] = [
     center_name: "NAIHATI",
     school_code: "NAI-007",
   },
+
+  // CENTER 4 : HALISAHAR
   {
     id: 30,
     name: "JATIA HIGH SCHOOL (H.S)",
@@ -274,53 +369,15 @@ export const schools: SchoolProps[] = [
     school_code: "HAL-005",
   },
   {
-    id: 35,
-    name: "CHANDAMARI NAGENDRA BALIKA VIDYALAYA",
-    center_id: 1,
-    center_code: "KU",
-    center_name: "KALYANI",
-    school_code: "KAL-013",
+    id: 77,
+    name: "BIJNANANANDA SAWARASTI SISHU MANDIR, KHASBATI",
+    center_id: 4,
+    center_code: "HS",
+    center_name: "HALISAHAR",
+    school_code: "HAL-006",
   },
-  {
-    id: 36,
-    name: "CHANDAMARI DESHAPRIYA SHIKSHAYATAN",
-    center_id: 1,
-    center_code: "KU",
-    center_name: "KALYANI",
-    school_code: "KAL-014",
-  },
-  {
-    id: 37,
-    name: "GAYESHPUR NETAJI VIDYAMANDIR",
-    center_id: 1,
-    center_code: "KU",
-    center_name: "KALYANI",
-    school_code: "KAL-015",
-  },
-  {
-    id: 38,
-    name: "GAYESHPUR NETAJI GIRLS HIGH SCHOOL",
-    center_id: 1,
-    center_code: "KU",
-    center_name: "KALYANI",
-    school_code: "KAL-016",
-  },
-  {
-    id: 39,
-    name: "BEDIBHAWAN RABITIRTHA VIDYALAYA",
-    center_id: 1,
-    center_code: "KU",
-    center_name: "KALYANI",
-    school_code: "KAL-017",
-  },
-  {
-    id: 40,
-    name: "NETAJI SUBHASH VIDYALAYA",
-    center_id: 1,
-    center_code: "KU",
-    center_name: "KALYANI",
-    school_code: "KAL-018",
-  },
+
+  // CENTER 6 : BALIA
   {
     id: 41,
     name: "Rajarmath RKA High School",
@@ -369,6 +426,8 @@ export const schools: SchoolProps[] = [
     center_name: "BALIA",
     school_code: "BAL-006",
   },
+
+  // CENTER 7 : CHAKDAH
   {
     id: 47,
     name: "CHAKDAHA MODEL SCHOOL",
@@ -417,6 +476,8 @@ export const schools: SchoolProps[] = [
     center_name: "CHAKDAH",
     school_code: "CHA-006",
   },
+
+  // CENTER 8 : SHANTIPUR
   {
     id: 53,
     name: "SHANTIPUR MUNICIPAL HIGH SCHOOL",
@@ -441,6 +502,16 @@ export const schools: SchoolProps[] = [
     center_name: "SHANTIPUR",
     school_code: "SHA-003",
   },
+  {
+    id: 76,
+    name: "RADHARANI NARI SHIKSHA MANDIR",
+    center_id: 8,
+    center_code: "SN",
+    center_name: "SHANTIPUR",
+    school_code: "SHA-004",
+  },
+
+  // CENTER 9 : HARINGHATA
   {
     id: 56,
     name: "BIROHI NETAJI VIDYABHAWAN",
@@ -481,6 +552,8 @@ export const schools: SchoolProps[] = [
     center_name: "HARINGHATA",
     school_code: "HAR-005",
   },
+
+  // CENTER 10 : RANAGHAT
   {
     id: 61,
     name: "NASRA HIGH SCHOOL",
@@ -586,14 +659,6 @@ export const schools: SchoolProps[] = [
     school_code: "RAN-013",
   },
   {
-    id: 74,
-    name: "Jawahar Navodaya Vidyalaya",
-    center_id: 11,
-    center_code: "JNV",
-    center_name: "JAWAHAR NAVODAYA VIDYALAYA",
-    school_code: "JNV-014",
-  },
-  {
     id: 75,
     name: "DEBNATH GIRLS HIGH SCHOOL",
     center_id: 10,
@@ -601,12 +666,14 @@ export const schools: SchoolProps[] = [
     center_name: "RANAGHAT",
     school_code: "RAN-014",
   },
+
+  // CENTER 11 : JNV
   {
-    id: 76,
-    name: "RADHARANI NARI SHIKSHA MANDIR",
-    center_id: 8,
-    center_code: "SN",
-    center_name: "SHANTIPUR",
-    school_code: "SHA-004",
+    id: 74,
+    name: "Jawahar Navodaya Vidyalaya",
+    center_id: 11,
+    center_code: "JNV",
+    center_name: "JAWAHAR NAVODAYA VIDYALAYA",
+    school_code: "JNV-014",
   },
 ];

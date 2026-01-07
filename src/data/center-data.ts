@@ -77,6 +77,6 @@ export const centers: CenterProps[] = [
     code: "JNV",
     emoji: "JNV",
     address:
-      "Jawahar Navodaya Vidyalaya, IGC Phase III, Barrackpore–Kalyani Expressway, beside JIS Engineering College, Block A5, Kalyani, West Bengal 741235",
+      "IGC Phase III, Barrackpore–Kalyani Expressway, beside JIS Engineering College, Block A5, Kalyani, West Bengal 741235",
   },
 ];
