@@ -115,7 +115,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 15,
-    name: "KANCHRAPARA INDIAN GIRLS HIGH SCHOOL",
+    name: "KANCHRAPARA INDIAN GIRLS' HIGH SCHOOL",
     center_id: 2,
     center_code: "KP",
     center_name: "KANCHRAPARA",
@@ -123,7 +123,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 16,
-    name: "KANCHRAPARA HARNET HIGH SCHOOL (E & B)",
+    name: "KANCHRAPARA HARNETT HIGH SCHOOL (H.S)",
     center_id: 2,
     center_code: "KP",
     center_name: "KANCHRAPARA",
@@ -131,7 +131,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 17,
-    name: "KANCHRAPARA HIGH SCHOOL",
+    name: "KANCHRAPARA HIGH SCHOOL (H.S)",
     center_id: 2,
     center_code: "KP",
     center_name: "KANCHRAPARA",
@@ -139,7 +139,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 18,
-    name: "JANATA HIGH SCHOOL",
+    name: "KANCHRAPARA JANATA HIGH SCHOOL",
     center_id: 2,
     center_code: "KP",
     center_name: "KANCHRAPARA",
@@ -147,7 +147,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 19,
-    name: "KANCHRAPARA SARADA DEVI GIRLS HIGH SCHOOL",
+    name: "KANCHRAPARA SARADA DEVI UCHCHA BALIKA VIDYALAYA (H.S)",
     center_id: 2,
     center_code: "KP",
     center_name: "KANCHRAPARA",
@@ -155,7 +155,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 20,
-    name: "KANCHRAPARA UDBODHONI GIRLS HIGH SCHOOL",
+    name: "KANCHRAPARA UDBODHINI GIRLS HIGH SCHOOL",
     center_id: 2,
     center_code: "KP",
     center_name: "KANCHRAPARA",
@@ -171,7 +171,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 22,
-    name: "KANCHRAPARA SHREE MANDHARI HIGH SCHOOL",
+    name: "SHREE MANDHARI HIGH SCHOOL",
     center_id: 2,
     center_code: "KP",
     center_name: "KANCHRAPARA",
@@ -179,7 +179,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 23,
-    name: "NAIHATI ADARSHA BIDYA NIKETAN",
+    name: "NAIHATI ADARSHA VIDYANIKETAN",
     center_id: 3,
     center_code: "NH",
     center_name: "NAIHATI",
@@ -187,7 +187,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 24,
-    name: "BIJAY NAGAR BOYS SCHOOL",
+    name: "BIJOYNAGAR HIGH SCHOOL",
     center_id: 3,
     center_code: "NH",
     center_name: "NAIHATI",
@@ -195,7 +195,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 25,
-    name: "NAIHATI MAHENDRDA HIGH SCHOOL",
+    name: "NAIHATI MAHENDRA HIGH SCHOOL",
     center_id: 3,
     center_code: "NH",
     center_name: "NAIHATI",
@@ -203,7 +203,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 26,
-    name: "NAIHATI NARENDRA BIDYA NIKETAN",
+    name: "NAIHATI NARENDRA VIDYANIKETAN",
     center_id: 3,
     center_code: "NH",
     center_name: "NAIHATI",
@@ -211,7 +211,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 27,
-    name: "NAIHATI KATAYANI HIGH SCHOOL",
+    name: "NAIHATI KATYAYANI GIRLS' HIGH SCHOOL (H.S)",
     center_id: 3,
     center_code: "NH",
     center_name: "NAIHATI",
@@ -219,7 +219,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 28,
-    name: "AMAR KRISHNA PATHSALA (BHATPARA)",
+    name: "BHATPARA AMARKRISHNA PATHSALA (H.S.)",
     center_id: 3,
     center_code: "NH",
     center_name: "NAIHATI",
@@ -227,7 +227,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 29,
-    name: "BHATPARA HIGH SCHOOL",
+    name: "BHATPARA HIGH SCHOOL (H.S.)",
     center_id: 3,
     center_code: "NH",
     center_name: "NAIHATI",
@@ -235,7 +235,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 30,
-    name: "JETIA HIGH SCHOOL",
+    name: "JATIA HIGH SCHOOL (H.S)",
     center_id: 4,
     center_code: "HS",
     center_name: "HALISAHAR",
@@ -243,7 +243,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 31,
-    name: "HALISAHAR RAMPRASAD BIDYAPITH",
+    name: "HALISAHAR RAMPRASAD VIDYAPITH",
     center_id: 4,
     center_code: "HS",
     center_name: "HALISAHAR",
@@ -251,7 +251,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 32,
-    name: "HALISAHAR RAVINDRA VIDYAMANDIR",
+    name: "HALISAHAR RABINDRA VIDYAMANDIR",
     center_id: 4,
     center_code: "HS",
     center_name: "HALISAHAR",
@@ -259,7 +259,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 33,
-    name: "HALISAHAR ADARSHA BIDYAPITH",
+    name: "HALISAHAR ADARSHA VIDYAPITH (H.S)",
     center_id: 4,
     center_code: "HS",
     center_name: "HALISAHAR",
@@ -267,7 +267,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 34,
-    name: "ANNAPURNA BALIKA BIDYALA",
+    name: "ANNAPURNA BALIKA VIDYALAYA (H.S)",
     center_id: 4,
     center_code: "HS",
     center_name: "HALISAHAR",
@@ -371,7 +371,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 47,
-    name: "CHAKDAH MODEL SCHOOL",
+    name: "CHAKDAHA MODEL SCHOOL",
     center_id: 7,
     center_code: "CH",
     center_name: "CHAKDAH",
@@ -379,7 +379,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 48,
-    name: "CHAKDAH RAMLAL ACADEMY HS SCHOOL",
+    name: "CHAKDAHA RAMLAL ACADEMY HIGHER SECONDARY SCHOOL",
     center_id: 7,
     center_code: "CH",
     center_name: "CHAKDAH",
@@ -387,7 +387,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 49,
-    name: "CHAKDAH BASANTA KUMARI BALIKA VIDYAP",
+    name: "CHAKDAHA BASANTA KUMARI BALIKA VIDYAPITH",
     center_id: 7,
     center_code: "CH",
     center_name: "CHAKDAH",
@@ -403,7 +403,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 51,
-    name: "CHAKDAH PURBANCHAL VIDYAPITH",
+    name: "CHAKDAHA PURBACHAL VIDYAPITH",
     center_id: 7,
     center_code: "CH",
     center_name: "CHAKDAH",
@@ -451,7 +451,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 57,
-    name: "BARJGULI GOPAL ACADEMY",
+    name: "BARAJAGULI GOPAL ACADEMY",
     center_id: 9,
     center_code: "HG",
     center_name: "HARINGHATA",
@@ -475,7 +475,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 60,
-    name: "SARAJU BALA BALIKA VIDYALAYA",
+    name: "HARINGHATA SARAJUBALA BALIKA VIDYALAYA",
     center_id: 9,
     center_code: "HG",
     center_name: "HARINGHATA",
@@ -483,7 +483,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 61,
-    name: "Nasra High School",
+    name: "NASRA HIGH SCHOOL",
     center_id: 10,
     center_code: "RN",
     center_name: "RANAGHAT",
@@ -491,7 +491,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 62,
-    name: "Ranaghat Bharati High School",
+    name: "RANAGHAT BHARATI HIGH SCHOOL",
     center_id: 10,
     center_code: "RN",
     center_name: "RANAGHAT",
@@ -499,7 +499,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 63,
-    name: "Hijuli Siksha Niketan",
+    name: "HIJULI SIKSHA NIKETAN (HIGH SCHOOL)",
     center_id: 10,
     center_code: "RN",
     center_name: "RANAGHAT",
@@ -507,7 +507,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 64,
-    name: "Pal Choudhry High School",
+    name: "RANAGHAT PAL CHOUDHURY HIGH SCHOOL",
     center_id: 10,
     center_code: "RN",
     center_name: "RANAGHAT",
@@ -515,7 +515,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 65,
-    name: "Ranaghat LalGopal High School",
+    name: "LALGOPAL HIGH SCHOOL (H.S)",
     center_id: 10,
     center_code: "RN",
     center_name: "RANAGHAT",
@@ -531,7 +531,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 67,
-    name: "Convent of Jesus and Mary",
+    name: "CONVENT OF JESUS AND MARY HIGH SCHOOL, RANAGHAT",
     center_id: 10,
     center_code: "RN",
     center_name: "RANAGHAT",
@@ -539,7 +539,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 68,
-    name: "Nasra Girls High School",
+    name: "NASRA GIRLS HIGH SCHOOL",
     center_id: 10,
     center_code: "RN",
     center_name: "RANAGHAT",
@@ -547,7 +547,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 69,
-    name: "U.P. Hindi School",
+    name: "U.P. HINDI HIGH SCHOOL",
     center_id: 10,
     center_code: "RN",
     center_name: "RANAGHAT",
@@ -571,7 +571,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 72,
-    name: "Hemnalini Girls High School",
+    name: "HEMNALINI GIRLS HIGH SCHOOL",
     center_id: 10,
     center_code: "RN",
     center_name: "RANAGHAT",
@@ -579,7 +579,7 @@ export const schools: SchoolProps[] = [
   },
   {
     id: 73,
-    name: "Ranaghat Debnath Institution",
+    name: "RANAGHAT DEBNATH INSTITUTION",
     center_id: 10,
     center_code: "RN",
     center_name: "RANAGHAT",
@@ -592,5 +592,21 @@ export const schools: SchoolProps[] = [
     center_code: "JNV",
     center_name: "JAWAHAR NAVODAYA VIDYALAYA",
     school_code: "JNV-014",
+  },
+  {
+    id: 75,
+    name: "DEBNATH GIRLS HIGH SCHOOL",
+    center_id: 10,
+    center_code: "RN",
+    center_name: "RANAGHAT",
+    school_code: "RAN-014",
+  },
+  {
+    id: 76,
+    name: "RADHARANI NARI SHIKSHA MANDIR",
+    center_id: 8,
+    center_code: "SN",
+    center_name: "SHANTIPUR",
+    school_code: "SHA-004",
   },
 ];

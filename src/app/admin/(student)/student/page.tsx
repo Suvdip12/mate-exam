@@ -52,11 +52,31 @@ export default function StudentSearchPage() {
         setSearchResults(response.data.data);
       }
     } catch (error) {
-      console.log("Error in signing up :: ", error);
+      console.log("Error in searching :: ", error);
       const axiosError = error as AxiosError<ApiResponse>;
-      toast.error(axiosError.response?.data.message ?? "Error signing up");
+      toast.error(axiosError.response?.data.message ?? "Error searching");
     } finally {
       setIsSearching(false);
+    }
+  }
+
+  async function handleDelete(student: StudentWithSchoolCenter) {
+    try {
+      const response = await axios.delete<ApiResponse>(
+        `/api/student/delete/${student.id}`,
+      );
+
+      if (response.data.success) {
+        toast.success(response.data.message || "Student deleted successfully!");
+        // Remove deleted student from search results
+        setSearchResults((prev) => prev.filter((s) => s.id !== student.id));
+      }
+    } catch (error) {
+      console.log("Error in deleting student :: ", error);
+      const axiosError = error as AxiosError<ApiResponse>;
+      toast.error(
+        axiosError.response?.data.message ?? "Error deleting student",
+      );
     }
   }
 
@@ -77,10 +97,7 @@ export default function StudentSearchPage() {
         <div className="border-b bg-background px-4 py-4 sm:px-6">
           <div className="mx-auto max-w-6xl">
             <Form {...form}>
-              <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="flex flex-col gap-3 sm:flex-row"
-              >
+              <div className="flex flex-col gap-3 sm:flex-row">
                 <FormField
                   control={form.control}
                   name="query"
@@ -101,11 +118,12 @@ export default function StudentSearchPage() {
                   loading={isSearching}
                   type="submit"
                   className="w-full gap-2 sm:w-auto"
+                  onClick={form.handleSubmit(onSubmit)}
                 >
                   <Search className="h-4 w-4" />
                   Search
                 </LoadingButton>
-              </form>
+              </div>
             </Form>
           </div>
         </div>
@@ -141,6 +159,7 @@ export default function StudentSearchPage() {
                         setSelectedStudent(student);
                         setIsUpdatedDialogOpen(true);
                       }}
+                      onDelete={handleDelete}
                     />
                   ))}
                 </div>
