@@ -6,7 +6,7 @@ import { ratelimit } from "./lib/ratelimit";
 const authRoutes = ["/signup", "/login", "/email-verified"];
 const adminRoutes = ["/admin"];
 // Add any API routes that should be accessible without a login
-const publicApiPrefixes = ["/api/student/admit", "/api/auth"];
+const publicApiPrefixes = ["/api/student", "/api/auth"];
 
 export default async function authMiddleware(request: NextRequest) {
   const pathName = request.nextUrl.pathname;

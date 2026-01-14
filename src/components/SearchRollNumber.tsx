@@ -110,7 +110,7 @@ export function SearchRollNumber() {
     setHasSearched(true);
     try {
       const response = await axios.get<ApiResponse<StudentWithSchoolCenter>>(
-        `/api/student/admit/${values.rollNumber}`,
+        `/api/student/${values.rollNumber}`,
       );
 
       if (response.data.success && response.data.data) {
