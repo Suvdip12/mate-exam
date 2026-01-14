@@ -1,12 +1,5 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
-  // previewFeatures = ["fullTextSearchPostgres"]
 }
 
 datasource db {
@@ -15,20 +8,21 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  email         String    @unique
+  id            String   @id @default(cuid())
+  email         String   @unique
   name          String?
   emailVerified Boolean
   image         String?
-  role          String    @default("user")
-  banned        Boolean   @default(false)
+  role          String   @default("user")
+  banned        Boolean  @default(false)
   banReason     String?
-  banExpires    Int? /// Unix timestamp for ban expiration
+  banExpires    Int? // Unix timestamp
   createdAt     DateTime
   updatedAt     DateTime
-  sessions      Session[]
-  accounts      Account[]
-  results       Result[]
+
+  sessions Session[]
+  accounts Account[]
+  results  Result[]
 
   @@map("users")
 }
@@ -36,16 +30,16 @@ model User {
 model Session {
   id             String   @id
   expiresAt      DateTime
-  token          String
+  token          String   @unique
   createdAt      DateTime
   updatedAt      DateTime
   impersonatedBy String?
   ipAddress      String?
   userAgent      String?
-  userId         String
-  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@unique([token])
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   @@map("sessions")
 }
 
@@ -79,6 +73,10 @@ model Verification {
   @@map("verifications")
 }
 
+// ===============================
+// CORE ACADEMIC MODELS
+// ===============================
+
 model Student {
   id          String    @id @default(cuid())
   fullName    String
@@ -90,17 +88,74 @@ model Student {
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 
-  // RELATIONS
   centerId Int
   center   Center @relation(fields: [centerId], references: [id])
 
   schoolId Int
   school   School @relation(fields: [schoolId], references: [id])
 
-  results Result[] // Student has many Results
+  result Result? // ONE student → ONE result
 
   @@index([fullName, rollNumber])
   @@map("students")
+}
+
+model Result {
+  id              String @id @default(cuid())
+  total_attempt   Int
+  correct_attempt Int
+  total_score     Int
+
+  studentId String  @unique
+  student   Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  authorId String
+  author   User   @relation(fields: [authorId], references: [id])
+
+  centerId Int?
+  center   Center? @relation(fields: [centerId], references: [id])
+
+  schoolId Int?
+  school   School? @relation(fields: [schoolId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("results")
+}
+
+// ===============================
+// SUPPORTING MODELS
+// ===============================
+
+model Center {
+  id          Int      @id @default(autoincrement())
+  center_name String   @db.VarChar(50)
+  center_code String   @unique @db.VarChar(12)
+  address     String?
+  createdAt   DateTime @default(now())
+
+  students Student[]
+  schools  School[]
+  results  Result[]
+
+  @@map("centers")
+}
+
+model School {
+  id          Int      @id @default(autoincrement())
+  school_name String   @db.VarChar(50)
+  school_code String   @unique @db.VarChar(12)
+  address     String?
+  createdAt   DateTime @default(now())
+
+  centerId Int
+  center   Center @relation(fields: [centerId], references: [id])
+
+  students Student[]
+  results  Result[]
+
+  @@map("schools")
 }
 
 model RollCounter {
@@ -111,54 +166,4 @@ model RollCounter {
   counter     Int    @default(0)
 
   @@unique([center_code, class, year], name: "center_code_class_year")
-}
-
-model Center {
-  id          Int       @id @default(autoincrement())
-  center_name String    @db.VarChar(50)
-  center_code String    @unique @db.VarChar(12)
-  address     String?
-  results     Result[]
-  schools     School[]
-  createdAt   DateTime  @default(now())
-  students    Student[]
-
-  @@map("centers")
-}
-
-model School {
-  id          Int       @id @default(autoincrement())
-  school_name String    @db.VarChar(50)
-  school_code String    @unique @db.VarChar(12)
-  address     String?
-  results     Result[]
-  center      Center    @relation(fields: [centerId], references: [id])
-  centerId    Int
-  createdAt   DateTime  @default(now())
-  students    Student[]
-
-  @@map("schools")
-}
-
-model Result {
-  id              String   @id @default(cuid())
-  name            String   @db.VarChar(50)
-  roll_number     String
-  class           String
-  total_attempt   Int
-  correct_attempt Int
-  total_score     Int
-  center          Center   @relation(fields: [centerId], references: [id])
-  centerId        Int
-  school          School   @relation(fields: [schoolId], references: [id])
-  schoolId        Int
-  studentId       String?
-  student         Student? @relation(fields: [studentId], references: [id])
-
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("results")
 }

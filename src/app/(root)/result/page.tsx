@@ -2,7 +2,6 @@
 import ResultCard from "@/components/ResultCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { getStudentResult } from "@/lib/actions/result.action";
 import { StudentResult } from "@/types/prisma.types";
 import { SearchIcon } from "lucide-react";
 import { useState, useTransition } from "react";
@@ -23,7 +22,7 @@ export default function Result() {
       return;
     }
     startTransition(async () => {
-      const result = await getStudentResult(rollNumber);
+      const result = null;
       setSearchResults(result);
     });
   }
