@@ -32,6 +32,7 @@ export async function GET(
       include: {
         school: true,
         center: true,
+        result:true
       },
     });
     if (!students) {
