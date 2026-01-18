@@ -113,10 +113,10 @@
 //               Please verify your roll number. If you are sure it is correct, and
 //               still not able to find your result, please contact us at
 //               <a
-//                 href="tel:+919382553880"
+//                 href="tel:+918972526679"
 //                 className="ml-1 text-blue-600 hover:underline"
 //               >
-//                 +91-9382553880
+//                 +91-8972526679
 //               </a>
 //               .
 //             </li>
@@ -316,10 +316,10 @@ export default function ResultNotPublished() {
             <div className="mt-6 text-center text-sm text-neutral-600">
               <p>For any queries, contact us at:</p>
               <a 
-                href="tel:+919382553880" 
+                href="tel:+918972526679" 
                 className="text-neutral-950 hover:underline font-medium"
               >
-                +91-9382553880
+                +91-8972526679
               </a>
             </div>
           </div>
