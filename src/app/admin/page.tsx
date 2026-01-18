@@ -15,6 +15,7 @@ import {
   Users,
   FileText,
   TrendingUp,
+  FileEditIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { validateRequest } from "@/auth";
@@ -196,6 +197,16 @@ export default async function Page() {
                 <span className="truncate">Settings</span>
               </div>
             )}
+              <Link
+                className={cn(
+                  buttonVariants({ variant: "default" }),
+                  "h-20 w-full justify-start px-4 text-base sm:h-24 sm:text-lg",
+                )}
+                href="/admin/update-result"
+              >
+                <FileEditIcon className="mr-2 h-5 w-5 shrink-0" />
+                <span className="truncate">Update Result</span>
+              </Link>
           </CardContent>
         </Card>
       </div>

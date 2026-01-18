@@ -6,7 +6,9 @@ export type TopRankerResult = {
   roll_number: string;
   class: string;
   total_score: number;
-  rank: number;
+  correct_attempt: number;
+  total_attempt: number;
+  rank: bigint | string;
   school_name: string;
   school_code: string;
   center_name: string;
@@ -52,3 +54,18 @@ export type StudentWithSchoolCenter = Prisma.StudentGetPayload<{
     center: true;
   };
 }>;
+export type StudentWithSchoolCenterResult = Prisma.StudentGetPayload<{
+  include: {
+    result: true;
+    school: true;
+    center: true;
+  };
+}>;
+
+// Extended type for result page with rank
+export type StudentResultWithRank = StudentWithSchoolCenterResult & {
+  result: StudentWithSchoolCenterResult['result'] & {
+    rank: number;
+    totalStudents: number;
+  };
+};

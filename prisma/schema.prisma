@@ -167,3 +167,62 @@ model RollCounter {
 
   @@unique([center_code, class, year], name: "center_code_class_year")
 }
+
+model ExamClass {
+  id        String      @id @default(cuid())
+  class     String // "5"
+  papers    ExamPaper[]
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+model ExamPaper {
+  id          String     @id @default(cuid())
+  year        String
+  media       Media[]
+  examClass   ExamClass? @relation(fields: [examClassId], references: [id], onDelete: Cascade)
+  examClassId String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@map("exam_paper")
+}
+
+model Gallery {
+  id    String  @id @default(cuid())
+  title String?
+  year  String
+  media Media[]
+
+  createdAt DateTime @default(now())
+
+  @@map("gallery")
+}
+
+enum MediaType {
+  PYQ
+  GALLERY
+}
+
+enum FileType {
+  IMAGE
+  VIDEO
+  PDF
+}
+
+model Media {
+  id        String    @id @default(cuid())
+  type      MediaType
+  fileType  FileType
+  url       String
+  createdAt DateTime  @default(now())
+
+  // Optional relations
+  examPaperId String?
+  examPaper   ExamPaper? @relation(fields: [examPaperId], references: [id], onDelete: Cascade)
+
+  galleryId String?
+  gallery   Gallery? @relation(fields: [galleryId], references: [id], onDelete: Cascade)
+
+  @@map("media")
+}

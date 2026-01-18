@@ -85,18 +85,19 @@ export default async function Home() {
               </strong>
             </div>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {/* <div className="rounded-md border bg-primary p-4 text-secondary">
+              <div className="rounded-md border bg-primary p-4 text-secondary">
                 <strong className="text-lg font-semibold">
-                  Result Published 👍 🎉
+                  Result Notice 👍
                 </strong>
                 <p className="text-sm">
-                  The results for MAT-2024 have been published. Click the link
-                  below to check your result.
-                  <Link className="ml-2 underline" href="/result">
-                    Click here
-                  </Link>
+                  Great news! 🎉 MAT-2024 results are live as of <b>18/01/26</b>
                 </p>
-              </div> */}
+                <Link
+                className=" underline"
+                href="/result">
+                click hare
+                </Link>
+              </div>
               <div className="rounded-md border bg-primary p-4 text-secondary">
                 <strong className="text-lg font-semibold">
                   Exam Notice 👍 🎉
